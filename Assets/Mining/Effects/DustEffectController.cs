@@ -6,25 +6,17 @@ public class DustEffectController : MonoBehaviour, MiningListener
 {
     [SerializeField]
     private ParticleSystem effect;
-    public void OnMiningStopped(Tile tile)
+
+    public void OnMiningStopped(IMiner miner)
     {
         effect.Stop();
     }
 
-    public void OnMiningTick(Tile tile)
+    public void OnMiningTick(IMiner miner)
     {}
 
-    public void OnStartMining(Tile tile)
+    public void OnStartMining(IMiner miner)
     {
         effect.Play();
-    }
-
-    public void OnTileLifeExpired(Tile tile)
-    {}
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

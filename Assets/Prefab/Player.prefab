@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 281509536}
-  - component: {fileID: 281509537}
   m_Layer: 3
   m_Name: DrillEffectOffset
   m_TagString: Untagged
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 7330364950408085698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &281509537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281509535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbefe9460b499ba46b8de896c007b1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 1638347400}
 --- !u!1 &1638347397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,7 +4858,7 @@ GameObject:
   - component: {fileID: 4091664715767285937}
   - component: {fileID: 1550721026}
   - component: {fileID: 1550721027}
-  - component: {fileID: 1550721031}
+  - component: {fileID: 2351569533676623802}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -5010,7 +4996,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1550721031
+--- !u!114 &2351569533676623802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5019,12 +5005,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4703828620668005121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b10e6c33e3574b8024d04eee4e672, type: 3}
+  m_Script: {fileID: 11500000, guid: 811c4269a2119d94db5969bb893be266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiningReach: 0.5
-  AttachedListeners:
-  - {fileID: 281509537}
+  MiningReach: 2
+  AttachedListeners: []
 --- !u!1 &7187687641169518006
 GameObject:
   m_ObjectHideFlags: 0

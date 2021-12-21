@@ -7,7 +7,7 @@ public class PlayerMiningController : MiningControllerBase
 {
     [SerializeField]
     private List<DustEffectController> AttachedListeners;
-    // Start is called before the first frame update
+
     void Start()
     {
         AttachedListeners.ForEach(a => RegisterListener(a));
