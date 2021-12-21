@@ -2,12 +2,27 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct OreYield {
+    public Ore OreType;
+    public int Quantity;
+}
+
 [System.Serializable]
 public class TileModel : IObservable<TileModel> {
-    internal IMiner MinedBy;
-    private ICollection<IObserver<TileModel>> observers = new List<IObserver<TileModel>>();
+    public bool IsDead => CurrentLife <= 0.0;
+    public IMiner MinedBy;
     [SerializeField]
     private float currentLife;
+    [SerializeField]
+    private OreYield ore;
+    public OreYield Ore {
+        get => ore;
+        set {
+            ore = value;
+            InvokeUpdated();
+        }
+    } 
+
     private bool isDestroyed = false;
     public float CurrentLife {
         get => currentLife;
@@ -23,8 +38,14 @@ public class TileModel : IObservable<TileModel> {
         }
     }
 
-    public bool IsDead => CurrentLife <= 0.0;
+    public TileModel(OreYield ore, float startingLife) {
+        this.ore = ore;
+        this.currentLife = startingLife;
+        this.observers = new List<IObserver<TileModel>>();
+    }
 
+
+    private ICollection<IObserver<TileModel>> observers;
     private void InvokeCompleted() {
         foreach(var observer in observers) {
             observer.OnCompleted();

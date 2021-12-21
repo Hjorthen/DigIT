@@ -8022,6 +8022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 306852591294016386, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5254092547497623031, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8069,23 +8073,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2577865768605237435, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
---- !u!1 &1464540361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 306852591294016386, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
-  m_PrefabInstance: {fileID: 1464540360}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1464540362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464540361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7563dead50eede24d88dd7abce3be816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1465462684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11534,6 +11521,10 @@ PrefabInstance:
     - target: {fileID: 4703828620668005121, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187687641169518006, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330364950408085698, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: m_RootOrder

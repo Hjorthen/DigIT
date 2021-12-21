@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public interface MiningTarget : MiningListener {
     bool CanBeMined();
@@ -10,10 +8,35 @@ public interface MiningTarget : MiningListener {
 public class TileModelBehaviour : MonoBehaviour {
     [SerializeField]
     public TileModel Model;
-    public void Start() { 
-        Model = new TileModel() { CurrentLife = 1000.0f };
+    public void Start() {
+        Model = new TileModel(new OreYield {OreType = new Ore(), Quantity = 5}, 100); 
         Model.Subscribe(new DestroyOnEnd(this.gameObject));
-        Model.Subscribe(new LogTileChanges());
+        Model.Subscribe(new LootProvider());
+    }
+}
+
+
+public class LootProvider : IObserver<TileModel>
+{
+    private bool lootGiven;
+
+    public LootProvider() {
+        lootGiven = false;
+    }
+
+    public void OnCompleted()
+    {}
+
+    public void OnError(Exception error)
+    {}
+
+    public void OnNext(TileModel value)
+    {
+        if(value.IsDead && !lootGiven) {
+            lootGiven = true;
+            var inventory = value.MinedBy.GetInventory();
+            inventory.AddItem(value.Ore.OreType, value.Ore.Quantity);
+        }
     }
 }
 

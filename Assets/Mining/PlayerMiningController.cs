@@ -10,6 +10,7 @@ public class PlayerMiningController : MiningControllerBase
 
     void Start()
     {
+        base.Start();
         AttachedListeners.ForEach(a => RegisterListener(a));
     }
 

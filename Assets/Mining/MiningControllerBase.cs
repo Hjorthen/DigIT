@@ -6,6 +6,13 @@ public abstract class MiningControllerBase : MonoBehaviour, IMiner
 {
     public float MiningReach = 2;
     private MiningTarget currentMiningTarget;
+    private Inventory<Ore> Inventory;
+
+    public void Start() {
+        Inventory = new Inventory<Ore>();
+        Inventory.OnItemAdded = new InventoryLogger().OnItemAdded;
+    }
+
 
     [SerializeField]
     private List<MiningListener> Listeners = new List<MiningListener>();
@@ -52,5 +59,10 @@ public abstract class MiningControllerBase : MonoBehaviour, IMiner
         currentMiningTarget = tile;
         currentMiningTarget.OnStartMining(this);
         Listeners.ForEach(l => l.OnStartMining(this));
+    }
+
+    public Inventory<Ore> GetInventory()
+    {
+        return Inventory;
     }
 }
