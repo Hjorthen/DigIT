@@ -13,6 +13,7 @@ public class TileModel : IObservable<TileModel> {
     public IMiner MinedBy;
     [SerializeField]
     private float currentLife;
+    public float MaxLife;
     [SerializeField]
     private OreYield ore;
     public OreYield Ore {
@@ -41,6 +42,7 @@ public class TileModel : IObservable<TileModel> {
     public TileModel(OreYield ore, float startingLife) {
         this.ore = ore;
         this.currentLife = startingLife;
+        this.MaxLife = startingLife;
         this.observers = new List<IObserver<TileModel>>();
     }
 
