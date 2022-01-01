@@ -5,14 +5,66 @@ public interface MiningTarget : MiningListener {
     bool CanBeMined();
 }
 
+[Serializable]
 public class TileModelBehaviour : MonoBehaviour {
-    [SerializeField]
     public TileModel Model;
-    public void Start() {
-        Model = new TileModel(new OreYield {OreType = new Ore(), Quantity = 5}, 10); 
+    [SerializeField]
+    private OreToVisualizerMapping OreViewMapper;
+    public void OnEnable() {
+        var world = ServiceRegistry.GetService<World>();
+        Model = world.GetTileAt(transform.position);
         Model.Subscribe(new DestroyOnEnd(this.gameObject));
         Model.Subscribe(new LootProvider());
-        Model.Subscribe(new MiningEffect(this.GetComponent<MeshRenderer>()));
+        var oreView = new OreView(gameObject, OreViewMapper);
+        Model.Subscribe(oreView);
+        oreView.DisplayTileAs(Model);
+    }
+}
+
+public class OreView : IObserver<TileModel>
+{
+    private readonly GameObject gameObject;
+    private readonly OreToVisualizerMapper oreMapper;
+    private Ore shownOre;
+
+    public OreView(GameObject gameObject, OreToVisualizerMapper OreMapper) {
+        this.gameObject = gameObject;
+        oreMapper = OreMapper;
+    }
+
+    public void OnCompleted()
+    {
+    }
+
+    public void OnError(Exception error)
+    {
+    }
+
+    public void OnNext(TileModel tile)
+    {
+        DisplayTileAs(tile);
+    }
+    public void DisplayTileAs(TileModel tile) 
+    {
+        var ore = tile.Ore.OreType;
+        var prefab = oreMapper.GetPrefabFor(ore);
+        RemoveExistingVisualizer();
+        AddVisualizer(prefab);
+    }
+
+    private void AddVisualizer(GameObject prefab)
+    {
+        var newVisualizer = GameObject.Instantiate(prefab);
+        newVisualizer.name = "Visualizer";
+        newVisualizer.transform.SetParent(gameObject.transform);
+        newVisualizer.transform.localPosition = Vector3.zero;
+    }
+
+    private void RemoveExistingVisualizer()
+    {
+        var visualizer = gameObject.transform.Find("Visualizer");
+        if(visualizer != null)
+            GameObject.Destroy(visualizer.gameObject);
     }
 }
 

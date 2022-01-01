@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d882ba9be486390489f642589ccf92a4, type: 3}
+  m_Name: OreMapping
+  m_EditorClassIdentifier: 
+  oreNames:
+  - Copper
+  - Coal
+  - Iron
+  - Plain
+  associatedPrefab:
+  - {fileID: 7828890781180340682, guid: e7b2257ba4126164bb7429e6efe08ce0, type: 3}
+  - {fileID: 7828890781180340682, guid: 7921d3f7f99dd004f845c113daf6affd, type: 3}
+  - {fileID: 7828890781180340682, guid: 7fb0d801c0ca1c6418c69340279ce1ee, type: 3}
+  - {fileID: 5863307882314296490, guid: 495b5dc45dd24b34ea3674400225bcee, type: 3}
