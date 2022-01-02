@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 public interface OreToVisualizerMapper {
-    GameObject GetPrefabFor(Ore ore);
+    GameObject GetPrefabFor(IOre ore);
 }
 
 [CreateAssetMenu]
@@ -15,9 +15,9 @@ public class OreToVisualizerMapping : ScriptableObject, OreToVisualizerMapper
     [SerializeField]
     private List<GameObject> associatedPrefab;
 
-    public GameObject GetPrefabFor(Ore ore)
+    public GameObject GetPrefabFor(IOre ore)
     {
-        var oreName = ore.Name;
+        var oreName = ore.DisplayName;
         int index = oreNames.IndexOf(oreName);
         return associatedPrefab[index];
     }

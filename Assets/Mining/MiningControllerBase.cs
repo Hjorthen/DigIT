@@ -6,10 +6,10 @@ public abstract class MiningControllerBase : MonoBehaviour, IMiner
 {
     public float MiningReach = 2;
     private MiningTarget currentMiningTarget;
-    private Inventory<Ore> Inventory;
+    private Inventory<IOre> Inventory;
 
     public void Start() {
-        Inventory = new Inventory<Ore>();
+        Inventory = new Inventory<IOre>();
         Inventory.OnItemAdded = new InventoryLogger().OnItemAdded;
     }
 
@@ -61,7 +61,7 @@ public abstract class MiningControllerBase : MonoBehaviour, IMiner
         Listeners.ForEach(l => l.OnStartMining(this));
     }
 
-    public Inventory<Ore> GetInventory()
+    public Inventory<IOre> GetInventory()
     {
         return Inventory;
     }

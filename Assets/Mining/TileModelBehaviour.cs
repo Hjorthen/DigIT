@@ -8,10 +8,10 @@ public interface MiningTarget : MiningListener {
 [Serializable]
 public class TileModelBehaviour : MonoBehaviour {
     public TileModel Model;
-    [SerializeField]
-    private OreToVisualizerMapping OreViewMapper;
+    private OreToVisualizerMapper OreViewMapper;
     public void Start() {
         var world = ServiceRegistry.GetService<World>();
+        OreViewMapper = ServiceRegistry.GetService<OreToVisualizerMapper>();
         Model = world.GetTileAt(transform.position);
         Model.Subscribe(new DestroyOnEnd(this.gameObject));
         Model.Subscribe(new LootProvider());

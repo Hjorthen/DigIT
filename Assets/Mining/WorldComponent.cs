@@ -7,8 +7,11 @@ public class WorldComponent : MonoBehaviour
 {
     [SerializeField]
     private Vector3 offset;
-    void Awake()
+    private IOreFactory factory;
+    void OnEnable()
     {
+        factory = ServiceRegistry.GetService<IOreFactory>();
+
         var grid = new TileGrid(100, 100);
         for (uint i = 0; i < 100; i++)
         {
@@ -22,15 +25,15 @@ public class WorldComponent : MonoBehaviour
         Debug.Log("Registered world");
     }
 
-    private Ore GetRandomOre() {
+    private IOre GetRandomOre() {
         float sample = UnityEngine.Random.Range(0.0f, 1.0f);
         if(sample > 0.5f)
-            return new Ore { Name = "Plain" };
+            return factory.GetOre(OreType.PLAIN);
         if(sample < 0.1f)
-            return new Ore { Name = "Iron" };
+            return factory.GetOre(OreType.IRON);
         if(sample < 0.2f)
-            return new Ore { Name = "Coal" };
+            return factory.GetOre(OreType.COAL);
          
-        return new Ore { Name = "Copper" };
+        return factory.GetOre(OreType.COPPER);
     }
 }

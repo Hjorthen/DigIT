@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class InventoryLogger {
-    public void OnItemAdded(InventoryEntry<Ore> entry) {
+    public void OnItemAdded(InventoryEntry<IOre> entry) {
         GameConsole.WriteLine(entry.ToString());
     }
 }

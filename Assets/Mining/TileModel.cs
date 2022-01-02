@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public struct OreYield {
-    public Ore OreType;
+    public IOre OreType;
     public int Quantity;
 }
 
