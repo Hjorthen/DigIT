@@ -10,7 +10,7 @@ public class TileModelBehaviour : MonoBehaviour {
     public TileModel Model;
     [SerializeField]
     private OreToVisualizerMapping OreViewMapper;
-    public void OnEnable() {
+    public void Start() {
         var world = ServiceRegistry.GetService<World>();
         Model = world.GetTileAt(transform.position);
         Model.Subscribe(new DestroyOnEnd(this.gameObject));

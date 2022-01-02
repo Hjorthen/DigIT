@@ -19,6 +19,7 @@ public class WorldComponent : MonoBehaviour
         }
         var world = new World(grid, offset);
         ServiceRegistry.RegisterService(world);
+        Debug.Log("Registered world");
     }
 
     private Ore GetRandomOre() {

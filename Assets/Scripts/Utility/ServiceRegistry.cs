@@ -14,6 +14,7 @@ public class ServiceRegistry : MonoBehaviour
 
     public void Awake() {
         if(instance == null) {
+            Debug.Log("Created service registry");
             instance = this;
         } else {
             throw new System.InvalidOperationException("A service registry has already been created!");
