@@ -8,9 +8,13 @@ public class ConsoleView : MonoBehaviour, IObserver<ConsoleModel>
 {
     private int LastOffset = -1;
     [SerializeField]
-    private Transform parent;
+    private RectTransform parent;
     [SerializeField]
     private Text textPrefab;
+    [SerializeField]
+    private VerticalLayoutGroup layoutGroup;
+
+    private bool dirty = false;
 
     public void OnCompleted()
     {}
@@ -24,10 +28,19 @@ public class ConsoleView : MonoBehaviour, IObserver<ConsoleModel>
     }
 
     private void AppendLineEntry(string line) {
-        var newEntry = GameObject.Instantiate(textPrefab.gameObject);
+        var newEntry = GameObject.Instantiate(textPrefab.gameObject, parent);
         var textComponent = newEntry.GetComponent<Text>();
         textComponent.text = line;
-        newEntry.transform.SetParent(parent);
+        dirty = true;
+    }
+
+
+    void LateUpdate() {
+        if(dirty) {
+            // The layout builder does not automatically update when a child is added. This forces it to do so.
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
+            dirty = false;
+        }
     }
 
     void Start()
