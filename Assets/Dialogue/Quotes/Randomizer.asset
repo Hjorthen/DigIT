@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe74800cf9fa364380b1f56a72e135d, type: 3}
+  m_Name: Randomizer
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - {fileID: 11400000, guid: 55116465ba23ec3408d8000bbb82b148, type: 2}
+  - {fileID: 11400000, guid: beda941f668715d4f8cde8cca82c8047, type: 2}
+  - {fileID: 11400000, guid: 64b00acc369013b45a0c59578aef1c77, type: 2}
+  - {fileID: 11400000, guid: 850531a5651355f4f9f89cfb1183e351, type: 2}
+  - {fileID: 11400000, guid: 2608f7cfdfd86844c90baa714af0a64a, type: 2}
+  - {fileID: 11400000, guid: fa600cdcd54828b419931a631c9f1c0a, type: 2}
+  - {fileID: 11400000, guid: 4780a411ff0a2d9438b63b5f55bea834, type: 2}
