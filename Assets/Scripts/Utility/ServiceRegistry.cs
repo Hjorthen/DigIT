@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /**
     summary:
@@ -14,13 +15,22 @@ public class ServiceRegistry : MonoBehaviour
 
     public void Awake() {
         if(instance == null) {
-            Debug.Log("Created service registry");
             instance = this;
         } else {
             throw new System.InvalidOperationException("A service registry has already been created!");
         }
     }
-    
+
+    public static List<T> GetServices<T>() where T : class
+    {
+        return instance.GetServicesInstanced<T>();
+    }
+
+    private List<T> GetServicesInstanced<T>() where T : class
+    {
+        return services.Where(p => p is T).Select(t => t as T).ToList();
+    }
+
     private void RegisterServiceInstanced<T>(T instance) where T : class {
         services.Add(instance);
     }

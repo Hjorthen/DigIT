@@ -5,9 +5,7 @@ using UnityEngine;
 public class Ore : ScriptableObject, IOre, IMinableObject, ISellableItem {
     [SerializeField]
     private string name;
-    public string DisplayName {
-        get;
-    }
+    public string DisplayName => name;
 
     [SerializeField]
     private int unitPrice;

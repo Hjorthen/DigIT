@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,7 +30,6 @@ public class ConsoleView : MonoBehaviour, IObserver<ConsoleModel>
         newEntry.transform.SetParent(parent);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         GameConsole.Instance.Data.Subscribe(this);
