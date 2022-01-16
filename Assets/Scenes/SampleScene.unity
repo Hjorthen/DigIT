@@ -13778,7 +13778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd46fcbd3daea44fa9b460af24422aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelocityThreshold: 4
+  VelocityThreshold: 5
   Damage: 40
   Hull: {fileID: 7187687639813512975}
 --- !u!114 &7187687639813512977
