@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43912ff947e07a418a6a7588445b08c, type: 3}
-  m_Name: Iron
+  m_Script: {fileID: 11500000, guid: 72daf5346dfc67d428f5e9ab2975e725, type: 3}
+  m_Name: Refuel
   m_EditorClassIdentifier: 
-  name: Iron
-  unitPrice: 15
-  oreType: 1
-  TilePrefab: {fileID: 7828890781180340682, guid: 7fb0d801c0ca1c6418c69340279ce1ee, type: 3}
+  unitPrice: 10

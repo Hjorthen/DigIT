@@ -1,15 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Forge : MonoBehaviour, ICommandHandler
+
+[System.Serializable]
+public class ShopEnteredHandler : MonoBehaviour, ICommandHandler
 {
+    [SerializeField]
     private string command = "sell";
     private PlayerMiningController enteredPlayer;
+    private IPriceProvider priceProvider;
+
+    [SerializeField]
+    private ShopHandler handler;
 
     void Awake()
     {
         ServiceRegistry.RegisterService<ICommandHandler>(this);
+    }
+
+    void Start() {
+        handler.Init();
     }
 
     public void OnTriggerEnter2D(Collider2D collider) {
@@ -20,14 +29,14 @@ public class Forge : MonoBehaviour, ICommandHandler
         }
     }
 
+    public void OnTriggerExit2D(Collider2D collider) {
+        GameConsole.WriteLine($"Command \"{command}\" no longer available");
+        enteredPlayer = null;
+    }
+
     public bool HandleCommand(string command) {
-        if(command == this.command) {
-            var inventory = enteredPlayer.GetInventory();
-            foreach(var inventoryEntry in inventory) {
-                GameConsole.WriteLine($"Sold {inventoryEntry.item.DisplayName} x {inventoryEntry.quantity}");
-            }
-            inventory.Clear();
-            GameConsole.WriteLine("Boom. Inventory Sold.");
+        if(command == this.command && enteredPlayer != null) {
+            handler.HandleCommand(command, enteredPlayer);
         }
 
         return true;

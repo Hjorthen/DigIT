@@ -14,11 +14,20 @@ public interface IOreFactory {
     IOre GetOre(OreType type);
 }
 
+public interface IPriceProvider {
+    ISellableItem FromOre(OreType type);
+}
+
 [System.Serializable]
-public class OreServiceProvider : MonoBehaviour, IOreFactory, OreToVisualizerMapper
+public class OreServiceProvider : MonoBehaviour, IOreFactory, OreToVisualizerMapper, IPriceProvider
 {
     [SerializeField]
     private List<Ore> Ores;
+
+    public ISellableItem FromOre(OreType type)
+    {
+        return Ores.First(o => o.Type == type);
+    }
 
     public IOre GetOre(OreType type)
     {
@@ -34,5 +43,6 @@ public class OreServiceProvider : MonoBehaviour, IOreFactory, OreToVisualizerMap
     {
         ServiceRegistry.RegisterService<IOreFactory>(this);
         ServiceRegistry.RegisterService<OreToVisualizerMapper>(this);
+        ServiceRegistry.RegisterService<IPriceProvider>(this);
     }
 }

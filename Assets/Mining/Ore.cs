@@ -9,10 +9,7 @@ public class Ore : ScriptableObject, IOre, IMinableObject, ISellableItem {
 
     [SerializeField]
     private int unitPrice;
-    public int UnitPrice {
-        get;
-    }
-
+    public int UnitPrice => unitPrice;
     [SerializeField]
     private OreType oreType;
     public OreType Type => oreType;

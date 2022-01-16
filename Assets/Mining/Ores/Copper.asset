@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Copper
   m_EditorClassIdentifier: 
   name: Copper
-  unitPrice: 0
+  unitPrice: 7
   oreType: 0
   TilePrefab: {fileID: 7828890781180340682, guid: e7b2257ba4126164bb7429e6efe08ce0, type: 3}
