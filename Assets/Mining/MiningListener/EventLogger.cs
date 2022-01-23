@@ -7,11 +7,6 @@ public class EventLogger : MiningListener
         Debug.Log("Mining stopped");
     }
 
-    public void OnMiningTick(IMiner miner)
-    {
-        Debug.Log("Mining tick");
-    }
-
     public void OnStartMining(IMiner miner)
     {
         Debug.Log("Mining started");

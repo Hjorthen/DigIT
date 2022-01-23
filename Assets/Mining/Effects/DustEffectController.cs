@@ -12,9 +12,6 @@ public class DustEffectController : MonoBehaviour, MiningListener
         effect.Stop();
     }
 
-    public void OnMiningTick(IMiner miner)
-    {}
-
     public void OnStartMining(IMiner miner)
     {
         effect.Play();

@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
 
-public interface MiningTarget : MiningListener {
+public interface MiningTarget {
     bool CanBeMined();
+    void Mine(float progress);
+    void MiningStarted(IMiner miner);
+    void MiningStopped(IMiner miner);
 }
 
 [Serializable]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerMiningController : MiningControllerBase
+public class PlayerMiningController : MinerController
 {
     [SerializeField]
     private List<DustEffectController> AttachedListeners;
