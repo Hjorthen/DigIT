@@ -1,9 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
 
-public class MiningControllerTests
+public class MockMiningListener : MiningListener
+{
+    public bool MiningStoppedCalled = false;
+    public bool MiningStartedCalled = false;
+
+    public void OnMiningStopped(IMiner miner)
+    {
+        MiningStoppedCalled = true;
+    }
+
+    public void OnStartMining(IMiner miner)
+    {
+        MiningStartedCalled = true;
+    }
+}
+
+public class MiningTargetControllerTests 
 {
     private float MiningTickDelay = 1;
     private StaticFloatProvider provider;
@@ -11,13 +24,16 @@ public class MiningControllerTests
     private MiningController controller;
     private MockMiningTarget miningTarget1;
     private MockMiningTarget miningTarget2;
+    private MockMiningListener eventListener;
     
     [SetUp]
     public void Setup() 
     {
         timer = new TickedCooldownTimer();
+        eventListener = new MockMiningListener();
         provider = new StaticFloatProvider(MiningTickDelay);
         controller = new MiningController(null, timer, provider);
+        controller.RegisterListener(eventListener);
 
         miningTarget1 = new MockMiningTarget();
         miningTarget2 = new MockMiningTarget();
@@ -30,6 +46,8 @@ public class MiningControllerTests
 
         Assert.IsTrue(miningTarget1.MiningStartedCalled);
         Assert.IsFalse(miningTarget1.MiningStoppedCalled);
+        Assert.IsTrue(eventListener.MiningStartedCalled);
+        Assert.IsFalse(eventListener.MiningStoppedCalled);
     }
 
     [Test]
@@ -68,6 +86,7 @@ public class MiningControllerTests
         controller.MineTarget(miningTarget1);
 
         Assert.IsTrue(miningTarget1.MiningStoppedCalled);
+        Assert.IsTrue(eventListener.MiningStoppedCalled);
     }
 
     [Test]
@@ -77,6 +96,7 @@ public class MiningControllerTests
         controller.StopMining();
 
         Assert.IsTrue(miningTarget1.MiningStoppedCalled);
+        Assert.IsTrue(eventListener.MiningStoppedCalled);
     }
 
     [Test]
@@ -87,6 +107,7 @@ public class MiningControllerTests
 
         Assert.IsTrue(miningTarget1.MiningStoppedCalled);
         Assert.IsTrue(miningTarget2.MiningStartedCalled);
+        Assert.IsTrue(eventListener.MiningStoppedCalled);
     }
 
     [Test]
@@ -97,6 +118,7 @@ public class MiningControllerTests
         controller.MineTarget(miningTarget1);
 
         Assert.IsFalse(miningTarget1.MiningStartedCalled);
+        Assert.IsFalse(eventListener.MiningStartedCalled);
     }
 }
 
