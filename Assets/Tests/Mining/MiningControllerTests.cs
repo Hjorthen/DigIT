@@ -1,21 +1,5 @@
 using NUnit.Framework;
 
-public class MockMiningListener : MiningListener
-{
-    public bool MiningStoppedCalled = false;
-    public bool MiningStartedCalled = false;
-
-    public void OnMiningStopped(IMiner miner)
-    {
-        MiningStoppedCalled = true;
-    }
-
-    public void OnStartMining(IMiner miner)
-    {
-        MiningStartedCalled = true;
-    }
-}
-
 public class MiningTargetControllerTests 
 {
     private float MiningTickDelay = 1;
@@ -119,35 +103,5 @@ public class MiningTargetControllerTests
 
         Assert.IsFalse(miningTarget1.MiningStartedCalled);
         Assert.IsFalse(eventListener.MiningStartedCalled);
-    }
-}
-
-class MockMiningTarget : MiningTarget
-{
-    public int MineCount {
-        get;
-        private set;
-    }
-
-    public bool canBeMined = true;
-    
-    public bool MiningStartedCalled = false;
-    public bool MiningStoppedCalled = false;
-
-    public bool CanBeMined() => canBeMined;
-
-    public void Mine(float progress)
-    {
-        MineCount++;
-    }
-
-    public void MiningStarted(IMiner miner)
-    {
-        MiningStartedCalled = true;
-    }
-
-    public void MiningStopped(IMiner miner)
-    {
-        MiningStoppedCalled = true;
     }
 }
