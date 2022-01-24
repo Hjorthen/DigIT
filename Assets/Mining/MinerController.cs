@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,31 +25,14 @@ public interface ICooldownTimer {
     void WaitFor(float seconds);
 }
 
-public interface IFloatProvider {
-    public float Value {
-        get;
-    }
-}
-
-public class StaticFloatProvider : IFloatProvider
-{
-    public StaticFloatProvider(float value) {
-        Value = value;
-    }
-    public float Value {
-        private set;
-        get;
-    }
-}
-
 public class MiningController {
     private MiningTarget currentMiningTarget;
     private List<MiningListener> Listeners = new List<MiningListener>();
     private readonly IMiner owner;
     private readonly ICooldownTimer miningCooldown;
-    private readonly IFloatProvider miningTickDelay;
+    private readonly Func<float> miningTickDelay;
 
-    public MiningController(IMiner owner, ICooldownTimer timer, IFloatProvider miningTickDelay) {
+    public MiningController(IMiner owner, ICooldownTimer timer, Func<float> miningTickDelay) {
         this.owner = owner;
         this.miningCooldown = timer;
         this.miningTickDelay = miningTickDelay;
@@ -90,7 +72,7 @@ public class MiningController {
 
     private void MineTarget() {
         if(miningCooldown.Expired) {
-            miningCooldown.WaitFor(miningTickDelay.Value);
+            miningCooldown.WaitFor(miningTickDelay());
             currentMiningTarget.Mine(1.0f);
         }
     }
@@ -116,11 +98,13 @@ public class MinerController : MonoBehaviour, IMiner
     private MiningTarget currentMiningTarget;
     private MiningController miningController;
     private TickedCooldownTimer miningTimer;
+    private PlayerEquipment equipment;
     private Inventory<IOre> Inventory;
 
     public void Start() {
         miningTimer = new TickedCooldownTimer();
-        miningController = new MiningController(this, miningTimer, new StaticFloatProvider(0.1f));
+        equipment = GetComponent<PlayerEquipment>();
+        miningController = new MiningController(this, miningTimer, () => equipment.Drill.Cooldown);
         Inventory = new Inventory<IOre>();
         Inventory.OnItemAdded = new InventoryLogger().OnItemAdded;
     }

@@ -2,21 +2,19 @@ using NUnit.Framework;
 
 public class MiningTargetControllerTests 
 {
-    private float MiningTickDelay = 1;
-    private StaticFloatProvider provider;
     private TickedCooldownTimer timer;
     private MiningController controller;
     private MockMiningTarget miningTarget1;
     private MockMiningTarget miningTarget2;
     private MockMiningListener eventListener;
-    
+    private float miningTickDelay = 1.0f;
+
     [SetUp]
     public void Setup() 
     {
         timer = new TickedCooldownTimer();
         eventListener = new MockMiningListener();
-        provider = new StaticFloatProvider(MiningTickDelay);
-        controller = new MiningController(null, timer, provider);
+        controller = new MiningController(null, timer, () => miningTickDelay);
         controller.RegisterListener(eventListener);
 
         miningTarget1 = new MockMiningTarget();
@@ -54,7 +52,7 @@ public class MiningTargetControllerTests
         Assert.AreEqual(1, miningTarget1.MineCount);
 
         // Advance time to expire cooldown
-        timer.AdvanceBy(MiningTickDelay);
+        timer.AdvanceBy(miningTickDelay);
         controller.MineTarget(miningTarget1);
 
         // We should now have mined again

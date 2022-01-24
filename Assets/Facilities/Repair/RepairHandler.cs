@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(menuName = "Shops/Repair")]
-public class RepairHandler : ShopHandler
+public class UpgradeFacility : ShopHandler
 {
     [SerializeField]
     private float unitPrice;
