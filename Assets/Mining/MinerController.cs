@@ -99,14 +99,13 @@ public class MinerController : MonoBehaviour, IMiner
     private MiningController miningController;
     private TickedCooldownTimer miningTimer;
     private PlayerEquipment equipment;
-    private Inventory<IOre> Inventory;
+    private Inventory<IOre> inventory;
 
     public void Start() {
         miningTimer = new TickedCooldownTimer();
         equipment = GetComponent<PlayerEquipment>();
         miningController = new MiningController(this, miningTimer, () => equipment.Drill.Cooldown);
-        Inventory = new Inventory<IOre>();
-        Inventory.OnItemAdded = new InventoryLogger().OnItemAdded;
+        inventory = GetComponent<OreInventory>().Inventory;
     }
 
 

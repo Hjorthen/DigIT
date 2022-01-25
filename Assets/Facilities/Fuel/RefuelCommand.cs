@@ -17,9 +17,15 @@ public class RefuelCommand : ShopHandler
 
         var refuelingAmount = fuel.AvailableCapacity();
         var price = refuelingAmount * unitPrice;
-        
-        balance.Currentvalue -= price;
-        fuel.Currentvalue += refuelingAmount;
+
+        if(balance.Withdraw(price)) {
+            fuel.Currentvalue += refuelingAmount;
+        } else {
+            refuelingAmount = balance.Currentvalue / unitPrice;
+            if(balance.Withdraw(balance.Currentvalue)) {
+                fuel.Currentvalue += Mathf.Ceil(refuelingAmount);
+            }
+        }
     }
 
     public override void Init()

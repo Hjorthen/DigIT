@@ -32,8 +32,9 @@ public class UpgradeHandler : ShopHandler
             case "buy":
                 if(parts.Length == 4) {
                     var equipment = player.GetComponent<PlayerEquipment>();
+                    var currency = player.GetComponent<PlayerStats>().Currency;
                     if(Enum.TryParse<PlayerUpgradeType>(parts[2], true, out PlayerUpgradeType upgradeType)) {
-                        HandleBuyUpgrade(upgradeType, parts[3], equipment);
+                        HandleBuyUpgrade(upgradeType, parts[3], equipment, currency);
                     } else {
                         GameConsole.WriteLine("Unknown upgrade type");
                     }
@@ -47,15 +48,18 @@ public class UpgradeHandler : ShopHandler
         }
     }
 
-    private void HandleBuyUpgrade(PlayerUpgradeType type, string upgradeName, PlayerEquipment equipment)
+    private void HandleBuyUpgrade(PlayerUpgradeType type, string upgradeName, PlayerEquipment equipment, ConsumableStat currency)
     {
         var upgrade = upgrades.Where(u => u.Type == type && u.Name == upgradeName).FirstOrDefault();
         if(upgrade == null) {
             GameConsole.WriteLine($"Upgrade {upgradeName} of type {type} is unknown");
             return;
         }
-
-        upgrade.AttachTo(equipment);
+        
+        if(currency.Withdraw(upgrade.BasePrice)) {
+            GameConsole.WriteLine($"Bought upgrade {upgradeName}");
+            upgrade.AttachTo(equipment);
+        }
     }
 
     private void PrintUpgradesForType(PlayerUpgradeType type)

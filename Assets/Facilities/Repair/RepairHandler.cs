@@ -18,8 +18,9 @@ public class UpgradeFacility : ShopHandler
         var refuelingAmount = fuel.AvailableCapacity();
         var price = refuelingAmount * unitPrice;
         
-        balance.Currentvalue -= price;
-        fuel.Currentvalue += refuelingAmount;
+        if(balance.Withdraw(price)) {
+            fuel.Currentvalue += refuelingAmount;
+        }
     }
 
     public override void Init()
