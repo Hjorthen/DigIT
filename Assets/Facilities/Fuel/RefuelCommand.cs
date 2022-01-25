@@ -6,26 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class RefuelCommand : ShopHandler
 {
-    [SerializeField]
-    private float unitPrice;
+    public float UnitPrice;
     public override void HandleCommand(string command, GameObject player)
     {
         var stats = player.GetComponent<PlayerStats>();
 
         var balance = stats.Currency; 
         var fuel = stats.Fuel;
+        Refuel(fuel, balance);
+    }
 
-        var refuelingAmount = fuel.AvailableCapacity();
-        var price = refuelingAmount * unitPrice;
+    public void Refuel(ConsumableStat fuel, ConsumableStat balance) {
+        var affordableAmount = Mathf.Floor(balance.Currentvalue / UnitPrice);
+        
+        var refuelingAmount = Mathf.Min(fuel.AvailableCapacity(), affordableAmount);
+        var price = refuelingAmount * UnitPrice;
 
         if(balance.Withdraw(price)) {
             fuel.Currentvalue += refuelingAmount;
-        } else {
-            refuelingAmount = balance.Currentvalue / unitPrice;
-            if(balance.Withdraw(balance.Currentvalue)) {
-                fuel.Currentvalue += Mathf.Ceil(refuelingAmount);
-            }
-        }
+        } 
+        GameConsole.WriteLine($"Refueled {refuelingAmount} fuel for {price}$");
     }
 
     public override void Init()
