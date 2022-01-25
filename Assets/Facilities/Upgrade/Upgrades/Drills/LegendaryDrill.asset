@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353b446a013626546a3e787d57851f99, type: 3}
-  m_Name: Quote 5
+  m_Script: {fileID: 11500000, guid: d4cd440896d8e7546bc35d246adc5284, type: 3}
+  m_Name: LegendaryDrill
   m_EditorClassIdentifier: 
-  Message: "Hull will be added soon\u2122 "
+  <Name>k__BackingField: LegendaryDrill
+  <BasePrice>k__BackingField: 1000
+  Cooldown: 0

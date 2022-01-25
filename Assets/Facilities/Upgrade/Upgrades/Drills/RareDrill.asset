@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cd440896d8e7546bc35d246adc5284, type: 3}
-  m_Name: BasicDrill
+  m_Name: RareDrill
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Basic Drill
-  <BasePrice>k__BackingField: 0
-  Cooldown: 0.2
+  <Name>k__BackingField: RareDrill
+  <BasePrice>k__BackingField: 500
+  Cooldown: 0.1

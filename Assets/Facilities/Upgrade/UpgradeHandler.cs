@@ -65,7 +65,7 @@ public class UpgradeHandler : ShopHandler
     private void PrintUpgradesForType(PlayerUpgradeType type)
     {
         foreach(var upgrade in upgrades.Where(u => u.Type == type)) {
-            GameConsole.WriteLine($"{upgrade.Name} - ${upgrade.BasePrice}$");
+            GameConsole.WriteLine($"{upgrade.Name} - {upgrade.BasePrice}$");
         }
     }
 
