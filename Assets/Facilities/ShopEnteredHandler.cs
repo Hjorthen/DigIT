@@ -37,7 +37,7 @@ public class ShopEnteredHandler : MonoBehaviour, ICommandHandler
     public bool HandleCommand(string commandString) {
         string[] command = commandString.Split(" ");
         if(command[0] == this.command && enteredPlayer != null) {
-            handler.HandleCommand(commandString, enteredPlayer);
+            handler.HandleCommand(commandString, enteredPlayer.gameObject);
         }
 
         return true;

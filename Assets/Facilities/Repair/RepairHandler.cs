@@ -8,7 +8,7 @@ public class UpgradeFacility : ShopHandler
 {
     [SerializeField]
     private float unitPrice;
-    public override void HandleCommand(string command, PlayerMiningController player)
+    public override void HandleCommand(string command, GameObject player)
     {
         var stats = player.GetComponent<PlayerStats>();
 

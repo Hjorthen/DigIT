@@ -138,6 +138,6 @@ public class MinerController : MonoBehaviour, IMiner
 
     public Inventory<IOre> GetInventory()
     {
-        return Inventory;
+        return inventory;
     }
 }

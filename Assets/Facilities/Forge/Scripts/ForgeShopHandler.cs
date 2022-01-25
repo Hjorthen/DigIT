@@ -6,9 +6,9 @@ using UnityEngine;
 public class ForgeShopHandler : ShopHandler {
     private IPriceProvider priceProvider;
 
-    public override void HandleCommand(string command, PlayerMiningController player)
+    public override void HandleCommand(string command, GameObject player)
     {
-            var inventory = player.GetInventory();
+            var inventory = player.GetComponent<OreInventory>().Inventory;
             var currencyStat = player.GetComponent<PlayerStats>().Currency;
             foreach(var inventoryEntry in inventory) {
                 var salesData = priceProvider.FromOre(inventoryEntry.item.Type);

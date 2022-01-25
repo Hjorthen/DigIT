@@ -10,7 +10,7 @@ public class UpgradeHandler : ShopHandler
     [SerializeField]
     public List<PlayerUpgradeObject> upgrades;
 
-    public override void HandleCommand(string command, PlayerMiningController player)
+    public override void HandleCommand(string command, GameObject player)
     {
         string[] parts = command.Split(" ");
         if(parts.Length <= 1) {
