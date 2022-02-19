@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +12,21 @@ public class World
     }
 
     private Vector3 offset;
-    private TileGrid grid;
+    public readonly TileGrid grid;
     public TileModel GetTileAt(Vector3 worldPosition) {
-        return grid[(uint)worldPosition.y + (uint)offset.y, (uint)worldPosition.x + (uint)offset.x];
+        var position = WorldToGridPosition(worldPosition);
+        return grid[(uint)position.y, (uint)position.x];
+    }
+
+    public uint Height => grid.Height;
+    public uint Width => grid.Width;
+
+    public Vector2Int WorldToGridPosition(Vector3 worldPosition) {
+        return new Vector2Int(Mathf.FloorToInt(worldPosition.x + offset.x), -Mathf.FloorToInt(worldPosition.y - offset.y));
+    }
+
+    public Vector3 GridToWorldPosition(int x, int y) {
+        return new Vector3(Mathf.FloorToInt(x - offset.x), -Mathf.FloorToInt(y - offset.y));
     }
 }
 

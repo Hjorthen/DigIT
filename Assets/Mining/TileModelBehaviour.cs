@@ -14,6 +14,7 @@ public class TileModelBehaviour : MonoBehaviour {
     private OreToVisualizerMapper OreViewMapper;
     public void Start() {
         var world = ServiceRegistry.GetService<World>();
+        var tiles = ServiceRegistry.GetService<TileRegistry>();
         OreViewMapper = ServiceRegistry.GetService<OreToVisualizerMapper>();
         Model = world.GetTileAt(transform.position);
         Model.Subscribe(new DestroyOnEnd(this.gameObject));
@@ -21,6 +22,9 @@ public class TileModelBehaviour : MonoBehaviour {
         var oreView = new OreView(gameObject, OreViewMapper);
         Model.Subscribe(oreView);
         oreView.DisplayTileAs(Model);
+
+        var gridPosition = world.WorldToGridPosition(transform.position);
+        tiles.SetTile(gridPosition.x, gridPosition.y, gameObject);
     }
 }
 

@@ -10566,6 +10566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
+--- !u!1 &1763568250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 306852591294016386, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
+  m_PrefabInstance: {fileID: 1763568249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1775864463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5254092547497623031, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}
@@ -11911,6 +11916,7 @@ GameObject:
   - component: {fileID: 1985367196}
   - component: {fileID: 1985367194}
   - component: {fileID: 1985367197}
+  - component: {fileID: 1985367198}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -11930,7 +11936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c7e985331cb9f4b90359beb345690c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 11, y: 4, z: 0}
+  offset: {x: 11, y: 7, z: 0}
+  tilePrefab: {fileID: 1763568250}
 --- !u!4 &1985367195
 Transform:
   m_ObjectHideFlags: 0
@@ -11975,6 +11982,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4d581a3389679a4ca9e47c274414b62, type: 2}
   - {fileID: 11400000, guid: 5c75073aeed3580498d25ae1bec5f94a, type: 2}
   - {fileID: 11400000, guid: f6f82f24cb60e6b42ba80067cbe207cd, type: 2}
+--- !u!114 &1985367198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985367193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24178a801e8abf4cacaaca85582f28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1988905985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5254092547497623031, guid: 8c438c7eb780b9c4ba3a4067a550b18d, type: 3}

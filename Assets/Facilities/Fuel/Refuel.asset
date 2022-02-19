@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72daf5346dfc67d428f5e9ab2975e725, type: 3}
   m_Name: Refuel
   m_EditorClassIdentifier: 
-  unitPrice: 10
+  UnitPrice: 10
