@@ -39,7 +39,7 @@ public class ConsumableStat : MonoBehaviour, IConsumableStat<float>
 
     public bool Withdraw(float amount) {
         if(currentValue >= amount) {
-            currentValue-= amount;
+            Currentvalue-= amount;
             return true;
         }
         return false;

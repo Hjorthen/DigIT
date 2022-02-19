@@ -15,8 +15,8 @@ public class WorldComponent : MonoBehaviour
     void OnEnable()
     {
         factory = ServiceRegistry.GetService<IOreFactory>();
-        uint width = 30;
-        uint height = 20;
+        uint width = 18;
+        uint height = 60;
         var grid = new TileGrid(height, width);
         for (uint i = 0; i < height; i++)
         {
