@@ -36,7 +36,8 @@ public class Drill : PlayerUpgradeObject {
 
 [System.Serializable]
 public enum PlayerUpgradeType {
-    DRILL
+    DRILL,
+    TANK
 }
 
 public interface PlayerUpgrade {

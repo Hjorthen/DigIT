@@ -2,6 +2,58 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface OreDistribution
+{
+    IOre GetOreFor(uint x, uint y);
+}
+
+public struct OrePoint {
+    public readonly uint depth;
+    public readonly uint chance;
+
+    public OrePoint(uint depth, uint chance)
+    {
+        this.depth = depth;
+        this.chance = chance;
+    }
+}
+
+public struct OreChance {
+    private readonly List<OrePoint> chances;
+    public readonly OreType Type;
+
+    public OreChance(OreType type, List<OrePoint> chances) 
+    {
+        Type = type;
+        this.chances = chances;
+    }
+
+    public uint ChanceAt(uint depth) {
+        return chances[0].chance;
+    }
+}
+
+public class TestDistribution : OreDistribution
+{
+    private IOreFactory oreFactory;
+
+    public TestDistribution(IOreFactory oreFactory)
+    {
+        this.oreFactory = oreFactory;
+    }
+
+    private OreChance iron = new OreChance(OreType.IRON, new List<OrePoint>() { new OrePoint(0, 100)});
+    private OreChance copper = new OreChance(OreType.COPPER, new List<OrePoint>() { new OrePoint(0, 100)});
+
+    public IOre GetOreFor(uint x, uint y)
+    {
+        if(x < 5)
+            return oreFactory.GetOre(OreType.IRON);
+        return oreFactory.GetOre(OreType.COPPER);
+    }
+}
+
+
 
 [Serializable]
 public class WorldComponent : MonoBehaviour
@@ -12,34 +64,31 @@ public class WorldComponent : MonoBehaviour
     private World world;
     [SerializeField]
     private GameObject tilePrefab;
+    private OreDistribution oreDistribution;
     void OnEnable()
     {
         factory = ServiceRegistry.GetService<IOreFactory>();
         uint width = 18;
         uint height = 60;
-        var grid = new TileGrid(height, width);
-        for (uint i = 0; i < height; i++)
-        {
-            for (uint j = 0; j < width; j++)
-            {
-                grid[i, j] = new TileModel(new OreYield {OreType = GetRandomOre(), Quantity = 5}, 10); 
-            }
-        }
+        oreDistribution = new TestDistribution(factory);
+        TileGrid grid = GenerateWorldGrid(width, height);
 
         world = new World(grid, offset);
         ServiceRegistry.RegisterService(world);
     }
 
-    private IOre GetRandomOre() {
-        float sample = UnityEngine.Random.Range(0.0f, 1.0f);
-        if(sample > 0.5f)
-            return factory.GetOre(OreType.PLAIN);
-        if(sample < 0.1f)
-            return factory.GetOre(OreType.IRON);
-        if(sample < 0.2f)
-            return factory.GetOre(OreType.COAL);
-         
-        return factory.GetOre(OreType.COPPER);
+    private TileGrid GenerateWorldGrid(uint width, uint height)
+    {
+        var grid = new TileGrid(height, width);
+        for (uint i = 0; i < height; i++)
+        {
+            for (uint j = 0; j < width; j++)
+            {
+                grid[i, j] = new TileModel(new OreYield { OreType = oreDistribution.GetOreFor(j, i), Quantity = 5 }, 10);
+            }
+        }
+
+        return grid;
     }
 
     void Update() 
