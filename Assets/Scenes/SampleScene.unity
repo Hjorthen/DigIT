@@ -11925,6 +11925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 11, y: 7, z: 0}
   tilePrefab: {fileID: 1763568250}
+  weights: {fileID: 11400000, guid: 0a2cbf8c0290bbd40b54e2830242dd17, type: 2}
 --- !u!4 &1985367195
 Transform:
   m_ObjectHideFlags: 0
