@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -20,7 +19,7 @@ public class WorldComponent : MonoBehaviour
         factory = ServiceRegistry.GetService<IOreFactory>();
         uint width = 18;
         uint height = 60;
-        oreDistribution = new TestOreDistributionSampler(new WeightedOreDistribution(weights));
+        oreDistribution = new WeightedOreDistributionSampler(new WeightedOreDistribution(weights));
         TileGrid grid = GenerateWorldGrid(width, height);
 
         world = new World(grid, offset);
