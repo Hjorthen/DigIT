@@ -15,6 +15,7 @@ public class TileModel : IObservable<TileModel> {
     [SerializeField]
     private float currentLife;
     public float MaxLife;
+    private List<IObserver<TileModel>> observers;
     [SerializeField]
     private OreYield ore;
     public OreYield Ore {
@@ -48,19 +49,19 @@ public class TileModel : IObservable<TileModel> {
     }
 
 
-    private ICollection<IObserver<TileModel>> observers;
     private void InvokeCompleted() {
-        foreach(var observer in observers) {
-            observer.OnCompleted();
+        for(int i=observers.Count - 1;i>=0;--i) {
+            observers[i].OnCompleted();
         }
     }
 
     private void InvokeUpdated() {
-        foreach (var observer in observers)
+        for(int i=observers.Count - 1;i>=0;--i) 
         {
-            observer.OnNext(this);
+            observers[i].OnNext(this);
         }
     }
+
     public IDisposable Subscribe(IObserver<TileModel> observer)
     {
         if(observers == null)

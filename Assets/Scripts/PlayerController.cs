@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if(Application.isPlaying)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, Rigidbody.velocity);
+            Gizmos.DrawRay(transform.position, 0.25f * Rigidbody.velocity.normalized);
         }
             
     }

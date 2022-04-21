@@ -26,7 +26,10 @@ public interface ICooldownTimer {
 }
 
 public class MiningController {
-    private MiningTarget currentMiningTarget;
+    public MiningTarget CurrentMiningTarget{
+        private set;
+        get;
+    }
     private List<MiningListener> Listeners = new List<MiningListener>();
     private readonly IMiner owner;
     private readonly ICooldownTimer miningCooldown;
@@ -44,13 +47,13 @@ public class MiningController {
 
     public void MineTarget(MiningTarget tile)
     {
-        if (currentMiningTarget != tile && tile.CanBeMined())
+        if (CurrentMiningTarget != tile && tile.CanBeMined())
         {
             SetMiningTarget(tile);
         }
-        if (currentMiningTarget != null)
+        if (CurrentMiningTarget != null)
         {
-            if (currentMiningTarget.CanBeMined())
+            if (CurrentMiningTarget.CanBeMined())
             {
                 MineTarget();
             }
@@ -63,17 +66,17 @@ public class MiningController {
 
     public void StopMining()
     {
-        if(currentMiningTarget == null)
+        if(CurrentMiningTarget == null)
             return;
-        currentMiningTarget.MiningStopped(owner);
+        CurrentMiningTarget.MiningStopped(owner);
         Listeners.ForEach(l => l.OnMiningStopped(owner));
-        currentMiningTarget = null;
+        CurrentMiningTarget = null;
     }
 
     private void MineTarget() {
         if(miningCooldown.Expired) {
             miningCooldown.WaitFor(miningTickDelay());
-            currentMiningTarget.Mine(1.0f);
+            CurrentMiningTarget.Mine(1.0f);
         }
     }
 
@@ -85,8 +88,8 @@ public class MiningController {
 
     private void StartMining(MiningTarget tile)
     {
-        currentMiningTarget = tile;
-        currentMiningTarget.MiningStarted(owner);
+        CurrentMiningTarget = tile;
+        CurrentMiningTarget.MiningStarted(owner);
         Listeners.ForEach(l => l.OnStartMining(owner));
     }
 }
@@ -95,8 +98,7 @@ public class MinerController : MonoBehaviour, IMiner
 {
     public float MiningReach = 2;
 
-    private MiningTarget currentMiningTarget;
-    private MiningController miningController;
+    protected MiningController miningController;
     private TickedCooldownTimer miningTimer;
     private PlayerEquipment equipment;
     private Inventory<IOre> inventory;
@@ -109,12 +111,7 @@ public class MinerController : MonoBehaviour, IMiner
     }
 
 
-    [SerializeField]
-    private List<MiningListener> Listeners = new List<MiningListener>();
-
-    public void RegisterListener(MiningListener listener) {
-        Listeners.Add(listener);
-    }
+    public MiningTarget CurrentTarget => miningController.CurrentMiningTarget;
 
     public void MiningTick(Vector2 direction)
     {
@@ -125,13 +122,12 @@ public class MinerController : MonoBehaviour, IMiner
             var tile = hit.collider.GetComponent<MiningTarget>();
             if(tile != null)
             {
+                Debug.DrawRay(transform.position, direction.normalized * MiningReach, Color.green);
                 miningController.MineTarget(tile);
             }
         } else {
-            if(currentMiningTarget != null)
-            {
-                miningController.StopMining();
-            }
+            Debug.DrawRay(transform.position, direction.normalized * MiningReach, Color.red);
+            miningController.StopMining();
         }   
     }
 

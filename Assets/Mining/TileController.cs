@@ -3,29 +3,30 @@ using UnityEngine;
 public class TileController : MonoBehaviour, MiningTarget
 {
     private TileModelBehaviour modelBehaviour;
-    private TileModel model => modelBehaviour.Model;
+    public TileModel Model => modelBehaviour.Model;
 
     public void Start() {
+        // We need to get the model through modelBehaviour in case the underlying model changes elsewhere. 
         modelBehaviour = GetComponent<TileModelBehaviour>();
     }
 
     public bool CanBeMined()
     {
-        return !model.IsDead;
+        return !Model.IsDead;
     }
 
     public void MiningStarted(IMiner miner)
     {
-        model.MinedBy = miner;
+        Model.MinedBy = miner;
     }
 
     public void MiningStopped(IMiner miner)
     {
-        model.MinedBy = null;
+        Model.MinedBy = null;
     }
 
     public void Mine(float progress)
     {
-        model.CurrentLife -= progress;
+        Model.CurrentLife -= progress;
     }
 }

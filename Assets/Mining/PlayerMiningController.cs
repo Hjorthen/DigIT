@@ -1,17 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class PlayerMiningController : MinerController
 {
-    [SerializeField]
-    private List<DustEffectController> AttachedListeners;
-
     void Start()
     {
         base.Start();
-        AttachedListeners.ForEach(a => RegisterListener(a));
+        System.Array.ForEach(GetComponents<MiningListener>(), a => miningController.RegisterListener(a));
     }
 
     // Update is called once per frame

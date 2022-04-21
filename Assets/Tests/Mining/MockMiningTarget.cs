@@ -1,9 +1,13 @@
+using UnityEngine;
+
 class MockMiningTarget : MiningTarget
 {
     public int MineCount {
         get;
         private set;
     }
+
+    public GameObject GameObject => null;
 
     public bool canBeMined = true;
     

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface MiningTarget {
     bool CanBeMined();
-    void Mine(float progress);
+    void Mine(float delta);
     void MiningStarted(IMiner miner);
     void MiningStopped(IMiner miner);
 }

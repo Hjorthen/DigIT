@@ -28,6 +28,8 @@ public class ConsumableStat : MonoBehaviour, IConsumableStat<float>
     private float currentValue;
     [SerializeField]
     private string label;
+    [SerializeField]
+    private bool freeze;
 
     public float MaxValue {
         get => maxValue;
@@ -38,6 +40,8 @@ public class ConsumableStat : MonoBehaviour, IConsumableStat<float>
     }
 
     public bool Withdraw(float amount) {
+        if(freeze)
+            return true;
         if(currentValue >= amount) {
             Currentvalue-= amount;
             return true;
@@ -48,6 +52,9 @@ public class ConsumableStat : MonoBehaviour, IConsumableStat<float>
     public float Currentvalue { 
         get => currentValue; 
         set {
+            if(freeze)
+                return;
+
             currentValue = value;
             InvokeChanged();
         } 
