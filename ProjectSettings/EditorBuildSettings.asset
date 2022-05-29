@@ -8,40 +8,40 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: 
-    guid: 79fe43193b693ac4bb1fa39253cd52fe
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: f8b5638f101b42f4c9f2eec1b88ba2e0
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: de6df536b54a0344c99de2b2c4cd9bc6
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: d9f429bdc73858243acf161e75e6ccfe
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: cd226320257e0054a916b42f17d1d7f8
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: b22c9997516d6dd448c8af3469638e3c
-  - enabled: 1
-    path: Assets/CanvasSizeCorrectInAwakeAndStartScene.unity
-    guid: df178ac1d80af5049a579ec3faeff0c1
-  - enabled: 1
-    path: Assets/NoActiveCameraInSceneDoesNotCrashEditorScene.unity
-    guid: 7adef505cb1349f429e0496355a03962
-  - enabled: 1
-    path: Assets/DisabledCanvasScene.unity
-    guid: a44ead60af81e554d802e48df3bf9731
-  - enabled: 1
-    path: Assets/AspectRatioFitter.unity
-    guid: 36b96b03e7ecad74888255f6f209de07
-  - enabled: 1
-    path: Assets/ContentSizeFitter.unity
-    guid: e25aee573a156124c990fbf11f8e169c
-  - enabled: 1
-    path: Assets/LayoutGroup.unity
-    guid: de635ca8643b60a4db05786ac372465f
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
