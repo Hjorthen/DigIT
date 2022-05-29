@@ -17,15 +17,7 @@ public class RefuelCommand : ShopHandler
     }
 
     public void Refuel(ConsumableStat fuel, ConsumableStat balance) {
-        var affordableAmount = Mathf.Floor(balance.Currentvalue / UnitPrice);
-        
-        var refuelingAmount = Mathf.Min(fuel.AvailableCapacity(), affordableAmount);
-        var price = refuelingAmount * UnitPrice;
-
-        if(balance.Withdraw(price)) {
-            fuel.Currentvalue += refuelingAmount;
-        } 
-        GameConsole.WriteLine($"Refueled {refuelingAmount} fuel for {price}$");
+        throw new System.NotImplementedException();
     }
 
     public override void Init()

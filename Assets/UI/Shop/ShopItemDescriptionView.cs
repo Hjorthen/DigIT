@@ -11,6 +11,6 @@ public class ShopItemDescriptionView : MonoBehaviour
     [SerializeField]
     private Text TextLabel;
     public void DisplayItem(PlayerUpgrade item) {
-        TextLabel.text = $"<b>{item.Name}</b>";
+        TextLabel.text = $"<b>{item.Name} - {item.BasePrice}$</b>";
     }
 }

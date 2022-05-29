@@ -19,7 +19,8 @@ public class PlayerStats : MonoBehaviour
     private IEnumerator DrainFuel() {
         do {
             yield return new WaitForSeconds(1);
-            Fuel.Currentvalue -= 1;
+            if(Time.timeScale > 0.0f)
+                Fuel.Currentvalue -= 1;
         } while(Fuel.Currentvalue > 0);
     }
 }
