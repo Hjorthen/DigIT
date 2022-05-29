@@ -2,44 +2,23 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class ShopEnteredHandler : MonoBehaviour, ICommandHandler
+public class ShopEnteredHandler : MonoBehaviour
 {
     [SerializeField]
-    private string command = "sell";
-    private PlayerMiningController enteredPlayer;
-    private IPriceProvider priceProvider;
-
-    [SerializeField]
-    private ShopHandler handler;
-
-    void Awake()
-    {
-        ServiceRegistry.RegisterService<ICommandHandler>(this);
-    }
-
-    void Start() {
-        handler.Init();
-    }
+    private GameObject shopView;
 
     public void OnTriggerEnter2D(Collider2D collider) {
         var playerController = collider.GetComponent<PlayerMiningController>();
         if(playerController != null) {
-            GameConsole.WriteLine($"Command \"{command}\" now available");
-            enteredPlayer = playerController;
+            shopView.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collider) {
-        GameConsole.WriteLine($"Command \"{command}\" no longer available");
-        enteredPlayer = null;
-    }
-
-    public bool HandleCommand(string commandString) {
-        string[] command = commandString.Split(" ");
-        if(command[0] == this.command && enteredPlayer != null) {
-            handler.HandleCommand(commandString, enteredPlayer.gameObject);
+    private void Update() {
+        if(Input.GetKeyUp(KeyCode.Escape) && shopView?.activeInHierarchy == true) {
+            shopView.SetActive(false);
+            Time.timeScale = 1;
         }
-
-        return true;
     }
 }
