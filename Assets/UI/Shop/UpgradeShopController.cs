@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeShopController : MonoBehaviour
 {
@@ -13,12 +15,31 @@ public class UpgradeShopController : MonoBehaviour
     private List<PlayerUpgradeObject> items;
     [SerializeField]
     private PopupDialog PopUp;
+    [SerializeField]
+    private Button FuelTanksButton;
+    [SerializeField]
+    private Button HullButton;
+    [SerializeField]
+    private Button EngineButton;
+    [SerializeField]
+    private Button DrillButton;
+
 
     void Start()
     {
-        foreach(var item in items) {
-            ShopItemListView.AddItem(item, this.OnShopListItemSelected);
-        }
+        DisplayItemsForType(PlayerUpgradeType.TANK);
+        FuelTanksButton.onClick.AddListener(() => { 
+            DisplayItemsForType(PlayerUpgradeType.TANK);
+            ShopItemDescriptionView.DisplayInfo("Fuel Tanks", "Fuel tanks can increase your fuel capacity and allow you to stay underground for longer before having to refuel.");
+        });
+        DrillButton.onClick.AddListener(() => {
+            DisplayItemsForType(PlayerUpgradeType.DRILL);
+            ShopItemDescriptionView.DisplayInfo("Drills", "Drill upgrades allow you to dig faster. Gotta go fast!");
+        });
+    }
+
+    private void DisplayItemsForType(PlayerUpgradeType type) {
+        ShopItemListView.SetList(items.Cast<PlayerUpgrade>().Where(u => u.Type == type).ToList(), this.OnShopListItemSelected);
     }
 
     private void OnShopListItemSelected(PlayerUpgrade clickedItem) {

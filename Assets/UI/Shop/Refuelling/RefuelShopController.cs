@@ -6,6 +6,8 @@ public class RefuelShopController : MonoBehaviour
     private float UnitPrice;
     [SerializeField]
     private RefuelView View;
+    [SerializeField]
+    private bool Repair;
 
     void Start() {
         View.OnRefuelClicked += Refuel;
@@ -21,12 +23,18 @@ public class RefuelShopController : MonoBehaviour
     void Refuel() {
         var player = GameObject.FindGameObjectWithTag("Player");
         var stats = player.GetComponent<PlayerStats>();
-        Refuel(stats.Fuel, stats.Currency);
+        var stat = Repair ? stats.Hull : stats.Fuel;
+        Refuel(stat, stats.Currency);
     }
 
     public void Refuel(ConsumableStat fuel, ConsumableStat balance) {
         var result = new RefuelingHandler().Refuel(fuel, balance, UnitPrice);
-        GameConsole.WriteLine($"Refueled {result.Amount} fuel for {result.TotalPrice}$");
+        if(Repair) {
+            GameConsole.WriteLine($"Repaired {result.Amount} hull for {result.TotalPrice}");
+        } 
+        else {
+            GameConsole.WriteLine($"Refueled {result.Amount} fuel for {result.TotalPrice}$");
+        }
     }
 }
 

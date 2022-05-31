@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShopItemListView : MonoBehaviour
 {
@@ -12,7 +10,16 @@ public class ShopItemListView : MonoBehaviour
     public delegate void ItemClickedCallback(PlayerUpgrade item);
     private ItemClickedCallback shopCallback;
 
-    public void AddItem(PlayerUpgrade item, ItemClickedCallback callback) {
+    public void SetList(ICollection<PlayerUpgrade> items, ItemClickedCallback callback) {
+        for (int i = 0; i < Root.childCount; i++) {
+            GameObject.Destroy(Root.GetChild(i).gameObject);
+        }
+        foreach(PlayerUpgrade item in items) {
+            AddItem(item, callback);
+        }
+    }
+
+    private void AddItem(PlayerUpgrade item, ItemClickedCallback callback) {
         GameObject itemObject = GameObject.Instantiate(Prefab.gameObject, Root);
         ButtonFacade label = itemObject.GetComponent<ButtonFacade>();
 
