@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d43912ff947e07a418a6a7588445b08c, type: 3}
-  m_Name: Coal
+  m_Name: Silver
   m_EditorClassIdentifier: 
-  name: Coal
-  unitPrice: 10
-  oreType: 2
-  TilePrefab: {fileID: 7828890781180340682, guid: 7921d3f7f99dd004f845c113daf6affd, type: 3}
+  name: Silver
+  unitPrice: 25
+  oreType: 9
+  TilePrefab: {fileID: 7828890781180340682, guid: 085321756f465c64d8896c8ae43d6793, type: 3}

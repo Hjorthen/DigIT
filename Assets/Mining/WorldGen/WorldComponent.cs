@@ -18,7 +18,7 @@ public class WorldComponent : MonoBehaviour
     {
         factory = ServiceRegistry.GetService<IOreFactory>();
         uint width = 32;
-        uint height = 60;
+        uint height = 110;
         oreDistribution = new WeightedOreDistributionSampler(new WeightedOreDistribution(weights));
         TileGrid grid = GenerateWorldGrid(width, height);
 
@@ -34,7 +34,7 @@ public class WorldComponent : MonoBehaviour
             for (uint j = 0; j < width; j++)
             {
                 var oreType = oreDistribution.SampleAt(j, i);
-                grid[i, j] = new TileModel(new OreYield { OreType = factory.GetOre(oreType), Quantity = 5 }, 10);
+                grid[i, j] = new TileModel(new OreYield { OreType = factory.GetOre(oreType), Quantity = 1 }, 10);
             }
         }
 

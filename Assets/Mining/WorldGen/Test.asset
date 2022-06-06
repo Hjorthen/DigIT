@@ -28,3 +28,21 @@ MonoBehaviour:
   - Type: 1
     Depth: 50
     Weight: 40
+  - Type: 9
+    Depth: 40
+    Weight: 0
+  - Type: 9
+    Depth: 50
+    Weight: 12
+  - Type: 6
+    Depth: 40
+    Weight: 0
+  - Type: 6
+    Depth: 50
+    Weight: 12
+  - Type: 11
+    Depth: 80
+    Weight: 0
+  - Type: 11
+    Depth: 120
+    Weight: 50

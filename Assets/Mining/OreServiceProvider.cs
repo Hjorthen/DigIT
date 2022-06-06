@@ -7,7 +7,15 @@ public enum OreType {
     COPPER,
     IRON,
     COAL,
-    PLAIN
+    PLAIN,
+    COBOLT,
+    DIAMOND,
+    GOLD,
+    MARSITE,
+    PLATINUM,
+    SILVER,
+    THORIUM,
+    URANIUM
 }
 
 public interface IOreFactory {
