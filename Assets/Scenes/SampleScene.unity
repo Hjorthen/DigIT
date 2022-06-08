@@ -15234,8 +15234,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054592566}
-  m_LocalRotation: {x: 0, y: 0, z: -0.0079276515, w: 0.9999686}
-  m_LocalPosition: {x: 6, y: -58.63361, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008197886, w: 0.9999664}
+  m_LocalPosition: {x: 5.900214, y: -525.67285, z: 0}
   m_LocalScale: {x: 2.4761, y: 2.4761, z: 2.4761}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16088,11 +16088,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 22.64208, y: -71.629974}
+  - {x: 22.7634, y: -564.64453}
   - {x: 22.621344, y: 8.178989}
   - {x: -9.6670265, y: 8.151094}
-  - {x: -9.683079, y: -71.68269}
-  - {x: 22.656359, y: -71.71027}
+  - {x: -10.690794, y: -563.167}
+  - {x: 22.455786, y: -563.316}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -17425,7 +17425,7 @@ MonoBehaviour:
   maxValue: 60
   currentValue: 40
   label: Fuel
-  freeze: 1
+  freeze: 0
 --- !u!114 &7187687639813512975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17441,7 +17441,7 @@ MonoBehaviour:
   maxValue: 100
   currentValue: 100
   label: Hull
-  freeze: 1
+  freeze: 0
 --- !u!114 &7187687639813512976
 MonoBehaviour:
   m_ObjectHideFlags: 0
