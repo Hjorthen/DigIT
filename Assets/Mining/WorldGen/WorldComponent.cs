@@ -18,8 +18,8 @@ public class WorldComponent : MonoBehaviour
     {
         factory = ServiceRegistry.GetService<IOreFactory>();
         uint width = 32;
-        uint height = 110;
-        oreDistribution = new WeightedOreDistributionSampler(new WeightedOreDistribution(weights));
+        uint height = 500;
+        oreDistribution = new WeightedOreDistributionSampler(new WeightedOreDistribution(weights, height));
         TileGrid grid = GenerateWorldGrid(width, height);
 
         world = new World(grid, offset);

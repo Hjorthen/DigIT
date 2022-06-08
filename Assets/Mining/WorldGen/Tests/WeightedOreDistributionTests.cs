@@ -8,10 +8,10 @@ public class WeightedOreDistributionTests
     public void WhenSampled_ReturnsSampleForEveryType() {
         WorldGenConfig config = new WorldGenConfig();
         config.oreChances = new OreChanceMarker[] {
-            new OreChanceMarker { Type = OreType.IRON },
-            new OreChanceMarker { Type = OreType.COPPER },
+            new OreChanceMarker { Type = "IRON" },
+            new OreChanceMarker { Type = "COPPER" },
         };
-        WeightedOreDistribution distribution = new WeightedOreDistribution(config);
+        WeightedOreDistribution distribution = new WeightedOreDistribution(config, 100);
 
         var result = distribution.GetWeightsAt(0, 0).Select(w => w.Type).ToHashSet();
 

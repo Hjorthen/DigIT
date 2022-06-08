@@ -13,36 +13,78 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   oreChances:
-  - Type: 0
+  - Type: COPPER
     Depth: 0
     Weight: 20
-  - Type: 2
+  - Type: COPPER
+    Depth: 200
+    Weight: 0
+  - Type: PLAIN
     Depth: 0
+    Weight: 80
+  - Type: COAL
+    Depth: 0
+    Weight: 20
+  - Type: COAL
+    Depth: 550
+    Weight: 10
+  - Type: COAL
+    Depth: 600
+    Weight: 60
+  - Type: DIAMOND
+    Depth: 600
+    Weight: 0
+  - Type: DIAMOND
+    Depth: 605
+    Weight: 10
+  - Type: COBOLT
+    Depth: 175
+    Weight: 0
+  - Type: COBOLT
+    Depth: 180
+    Weight: 20
+  - Type: IRON
+    Depth: 100
+    Weight: 0
+  - Type: IRON
+    Depth: 110
     Weight: 30
-  - Type: 3
-    Depth: 0
-    Weight: 50
-  - Type: 1
-    Depth: 0
+  - Type: SILVER
+    Depth: 200
+    Weight: 0 
+  - Type: SILVER
+    Depth: 300
+    Weight: 30
+  - Type: GOLD
+    Depth: 220
     Weight: 0
-  - Type: 1
-    Depth: 50
-    Weight: 40
-  - Type: 9
-    Depth: 40
+  - Type: GOLD
+    Depth: 300
+    Weight: 25
+  - Type: PLATINUM
+    Depth: 250
     Weight: 0
-  - Type: 9
-    Depth: 50
-    Weight: 12
-  - Type: 6
-    Depth: 40
+  - Type: PLATINUM
+    Depth: 350
+    Weight: 20
+  - Type: MARSITE
+    Depth: 250
     Weight: 0
-  - Type: 6
-    Depth: 50
-    Weight: 12
-  - Type: 11
-    Depth: 80
+  - Type: MARSITE
+    Depth: 1000
+    Weight: 10
+  - Type: URANIUM
+    Depth: 350
     Weight: 0
-  - Type: 11
-    Depth: 120
-    Weight: 50
+  - Type: URANIUM
+    Depth: 600
+    Weight: 20
+  - Type: THORIUM
+    Depth: 500
+    Weight: 0
+  - Type: THORIUM
+    Depth: 1000
+    Weight: 20
+  - Type: PLAIN
+    Depth: 600
+    Weight: 160
