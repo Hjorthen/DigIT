@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Thorium
   m_EditorClassIdentifier: 
   name: Iron
-  unitPrice: 110
+  unitPrice: 1100
   oreType: 10
   TilePrefab: {fileID: 7828890781180340682, guid: d60d6a13d88726a4bb46fb00c89aa2b2, type: 3}

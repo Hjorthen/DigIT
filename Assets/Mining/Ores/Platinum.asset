@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Platinum
   m_EditorClassIdentifier: 
   name: Iron
-  unitPrice: 50
+  unitPrice: 500
   oreType: 8
   TilePrefab: {fileID: 7828890781180340682, guid: 76e8d6d043519e74db70dbd844de306a, type: 3}

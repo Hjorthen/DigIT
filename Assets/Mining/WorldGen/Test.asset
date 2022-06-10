@@ -26,26 +26,26 @@ MonoBehaviour:
     Depth: 0
     Weight: 20
   - Type: COAL
-    Depth: 550
-    Weight: 10
+    Depth: 450
+    Weight: 20
   - Type: COAL
     Depth: 600
     Weight: 60
   - Type: DIAMOND
-    Depth: 600
+    Depth: 500
     Weight: 0
   - Type: DIAMOND
-    Depth: 605
+    Depth: 650
     Weight: 10
   - Type: COBOLT
-    Depth: 175
+    Depth: 150
     Weight: 0
   - Type: COBOLT
     Depth: 180
     Weight: 20
   - Type: IRON
-    Depth: 100
-    Weight: 0
+    Depth: 50
+    Weight: 5
   - Type: IRON
     Depth: 110
     Weight: 30
@@ -53,19 +53,19 @@ MonoBehaviour:
     Depth: 200
     Weight: 0 
   - Type: SILVER
-    Depth: 300
+    Depth: 400
     Weight: 30
   - Type: GOLD
     Depth: 220
     Weight: 0
   - Type: GOLD
-    Depth: 300
+    Depth: 400
     Weight: 25
   - Type: PLATINUM
     Depth: 250
     Weight: 0
   - Type: PLATINUM
-    Depth: 350
+    Depth: 450
     Weight: 20
   - Type: MARSITE
     Depth: 250
@@ -86,5 +86,5 @@ MonoBehaviour:
     Depth: 1000
     Weight: 20
   - Type: PLAIN
-    Depth: 600
-    Weight: 160
+    Depth: 1000
+    Weight: 1000

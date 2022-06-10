@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Diamond
   m_EditorClassIdentifier: 
   name: Diamond
-  unitPrice: 50
+  unitPrice: 500
   oreType: 5
   TilePrefab: {fileID: 7828890781180340682, guid: 99d02dfbb36476c40b787264550aa641, type: 3}

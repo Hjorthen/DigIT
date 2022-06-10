@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cobolt
   m_EditorClassIdentifier: 
   name: Cobolt
-  unitPrice: 15
+  unitPrice: 150
   oreType: 4
   TilePrefab: {fileID: 7828890781180340682, guid: bfb32a91eb2f32b42894bef902777913, type: 3}

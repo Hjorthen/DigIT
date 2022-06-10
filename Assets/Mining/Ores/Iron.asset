@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   name: Iron
-  unitPrice: 15
+  unitPrice: 150
   oreType: 1
   TilePrefab: {fileID: 7828890781180340682, guid: 7fb0d801c0ca1c6418c69340279ce1ee, type: 3}

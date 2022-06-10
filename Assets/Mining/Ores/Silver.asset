@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Silver
   m_EditorClassIdentifier: 
   name: Silver
-  unitPrice: 25
+  unitPrice: 250
   oreType: 9
   TilePrefab: {fileID: 7828890781180340682, guid: 085321756f465c64d8896c8ae43d6793, type: 3}

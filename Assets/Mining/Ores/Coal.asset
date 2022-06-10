@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   name: Coal
-  unitPrice: 10
+  unitPrice: 150
   oreType: 2
   TilePrefab: {fileID: 7828890781180340682, guid: 7921d3f7f99dd004f845c113daf6affd, type: 3}

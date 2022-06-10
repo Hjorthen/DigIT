@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Uranium
   m_EditorClassIdentifier: 
   name: Iron
-  unitPrice: 85
+  unitPrice: 850
   oreType: 11
   TilePrefab: {fileID: 7828890781180340682, guid: 8a11c1e8e8ef83043b67a46a787dd282, type: 3}

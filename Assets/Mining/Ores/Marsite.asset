@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Marsite
   m_EditorClassIdentifier: 
   name: Iron
-  unitPrice: 250
+  unitPrice: 2500
   oreType: 7
   TilePrefab: {fileID: 7828890781180340682, guid: eed6f6ffe4ddfa64d86f2bfcf4d76c13, type: 3}

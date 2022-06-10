@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   name: Gold
-  unitPrice: 35
+  unitPrice: 350
   oreType: 6
   TilePrefab: {fileID: 7828890781180340682, guid: 05fb0ac4ac21f6b4a8e73678f6173b4d, type: 3}
