@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Copper
   unitPrice: 70
   oreType: 0
-  TilePrefab: {fileID: 7828890781180340682, guid: e7b2257ba4126164bb7429e6efe08ce0, type: 3}
+  TilePrefab: {fileID: 8701896863817633487, guid: af3e81d91fc2fae44b0a2ffee47f9ad3, type: 3}

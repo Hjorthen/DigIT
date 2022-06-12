@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Iron
   unitPrice: 500
   oreType: 8
-  TilePrefab: {fileID: 7828890781180340682, guid: 76e8d6d043519e74db70dbd844de306a, type: 3}
+  TilePrefab: {fileID: 8092610083856355408, guid: 046c62ea8f1c24d4396e99e3a776a4c6, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Silver
   unitPrice: 250
   oreType: 9
-  TilePrefab: {fileID: 7828890781180340682, guid: 085321756f465c64d8896c8ae43d6793, type: 3}
+  TilePrefab: {fileID: 8339362720694301966, guid: 9deddda8d6543074097afb7dd76ca927, type: 3}

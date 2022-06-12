@@ -17669,11 +17669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7187687639813512974, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: freeze
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187687639813512975, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: freeze
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187687639813512977, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: deathOverlay

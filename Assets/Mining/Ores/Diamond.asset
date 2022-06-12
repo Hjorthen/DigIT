@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Diamond
   unitPrice: 500
   oreType: 5
-  TilePrefab: {fileID: 7828890781180340682, guid: 99d02dfbb36476c40b787264550aa641, type: 3}
+  TilePrefab: {fileID: 5152308761103085501, guid: c3935fcdf4a1cfa45afb1a1249735e56, type: 3}

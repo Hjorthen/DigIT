@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Gold
   unitPrice: 350
   oreType: 6
-  TilePrefab: {fileID: 7828890781180340682, guid: 05fb0ac4ac21f6b4a8e73678f6173b4d, type: 3}
+  TilePrefab: {fileID: 869300725377329071, guid: 5634221a188b85440a0aa23e5a757f1a, type: 3}
