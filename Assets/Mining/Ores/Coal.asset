@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Coal
   unitPrice: 150
   oreType: 2
-  TilePrefab: {fileID: 7828890781180340682, guid: 7921d3f7f99dd004f845c113daf6affd, type: 3}
+  TilePrefab: {fileID: 2132040151588055804, guid: 59ae53138b9f2ab4e8a2d304908cf1b4, type: 3}
