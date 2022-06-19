@@ -10,6 +10,8 @@ public class RatioStatDisplay : MonoBehaviour, System.IObserver<IConsumableStat<
     private RectTransform ratio;
     [SerializeField]
     private ConsumableStat stat;
+    [SerializeField]
+    private Animator lowAlertAnimation;
     private IDisposable subscriber = null;
 
     void Start() {
@@ -28,6 +30,12 @@ public class RatioStatDisplay : MonoBehaviour, System.IObserver<IConsumableStat<
         var anchor = ratio.anchorMax;
         anchor.x = fillRatio;
         ratio.anchorMax = anchor;
+        
+        if(stat.CurrentRatio() <= 0.2) {
+            lowAlertAnimation.Play("Base.Alert");
+        } else {
+            lowAlertAnimation.Play("Base.Idle");
+        }
     }
 
     void OnDestroy() {

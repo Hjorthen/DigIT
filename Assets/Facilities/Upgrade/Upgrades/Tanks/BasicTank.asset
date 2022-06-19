@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Basic Tank
   <BasePrice>k__BackingField: 0
-  MaxFuel: 40
+  MaxFuel: 60
