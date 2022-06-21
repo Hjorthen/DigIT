@@ -9,6 +9,9 @@ public class RefuelShopController : MonoBehaviour
     [SerializeField]
     private bool Repair;
 
+    [SerializeField]
+    private TransactionLogController transactionLog;
+
     void Start() {
         View.OnRefuelClicked += Refuel;
     }
@@ -30,10 +33,10 @@ public class RefuelShopController : MonoBehaviour
     public void Refuel(ConsumableStat fuel, ConsumableStat balance) {
         var result = new RefuelingHandler().Refuel(fuel, balance, UnitPrice);
         if(Repair) {
-            GameConsole.WriteLine($"Repaired {result.Amount} hull for {result.TotalPrice}");
+            transactionLog.AddEntry($"-{result.TotalPrice}$ ({result.Amount} x Repair)");
         } 
         else {
-            GameConsole.WriteLine($"Refueled {result.Amount} fuel for {result.TotalPrice}$");
+            transactionLog.AddEntry($"-{result.TotalPrice}$ ({result.Amount} x Fuel)");
         }
     }
 }

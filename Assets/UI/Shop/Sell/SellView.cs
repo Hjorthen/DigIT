@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SellView : MonoBehaviour
 {
+    [SerializeField]
+    private TransactionLogController transactionLog;
     private IPriceProvider priceProvider;
     void Start()
     {
@@ -19,7 +21,7 @@ public class SellView : MonoBehaviour
             var salesData = priceProvider.FromOre(inventoryEntry.item.Type);
             var money = inventoryEntry.quantity * salesData.UnitPrice;
             currencyStat.Currentvalue += money;
-            GameConsole.WriteLine($"Sold {inventoryEntry.item.DisplayName} x {inventoryEntry.quantity} for {salesData.UnitPrice * inventoryEntry.quantity}$");
+            transactionLog.AddEntry($"+{salesData.UnitPrice * inventoryEntry.quantity}$ ({inventoryEntry.quantity} x {inventoryEntry.item.DisplayName})");
         }
         inventory.Clear();
         GameConsole.WriteLine("Boom. Inventory Sold.");

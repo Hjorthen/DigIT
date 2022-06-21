@@ -116,7 +116,8 @@ public class LootProvider : IObserver<TileModel>
         if(value.IsDead && !lootGiven) {
             lootGiven = true;
             var inventory = value.MinedBy.GetInventory();
-            inventory.AddItem(value.Ore.OreType, value.Ore.Quantity);
+            if(value.Ore.OreType.Type != OreType.PLAIN)
+                inventory.AddItem(value.Ore.OreType, value.Ore.Quantity);
         }
     }
 }

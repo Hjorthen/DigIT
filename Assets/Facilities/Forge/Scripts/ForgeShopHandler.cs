@@ -6,6 +6,9 @@ using UnityEngine;
 public class ForgeShopHandler : ShopHandler {
     private IPriceProvider priceProvider;
 
+    [SerializeField]
+    private TransactionLogController transactionLog;
+
     public override void HandleCommand(string command, GameObject player)
     {
             var inventory = player.GetComponent<OreInventory>().Inventory;
@@ -14,10 +17,9 @@ public class ForgeShopHandler : ShopHandler {
                 var salesData = priceProvider.FromOre(inventoryEntry.item.Type);
                 var money = inventoryEntry.quantity * salesData.UnitPrice;
                 currencyStat.Currentvalue += money;
-                GameConsole.WriteLine($"Sold {inventoryEntry.item.DisplayName} x {inventoryEntry.quantity} for {salesData.UnitPrice * inventoryEntry.quantity}$");
+                transactionLog.AddEntry($"+ {salesData.UnitPrice * inventoryEntry.quantity}$ ({inventoryEntry.quantity} x {inventoryEntry.item.DisplayName})");
             }
             inventory.Clear();
-            GameConsole.WriteLine("Boom. Inventory Sold.");
     }
 
     public override void Init() {

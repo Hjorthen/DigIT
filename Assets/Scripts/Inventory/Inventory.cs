@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public struct InventoryEntry<T> {
     public InventoryEntry(T item, int quantity) {
