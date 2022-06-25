@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -18,12 +20,15 @@ public abstract class PlayerUpgradeObject : ScriptableObject, PlayerUpgrade {
     }
 
     public abstract bool AttachTo(PlayerEquipment equipment);
+
+
+    public abstract int CompareTo(PlayerUpgrade other);
 }
 
 [CreateAssetMenu(menuName = "Equipment/Drill")]
 [System.Serializable]
 public class Drill : PlayerUpgradeObject {
-    public float Cooldown;
+    public float Effeciency;
 
     public override PlayerUpgradeType Type => PlayerUpgradeType.DRILL;
 
@@ -31,6 +36,14 @@ public class Drill : PlayerUpgradeObject {
     {
         equipment.Drill = this;
         return true;
+    }
+
+    public override int CompareTo(PlayerUpgrade other) {
+        if(!(other is Drill)) {
+            return 0;
+        }
+        
+        return (int)(this.Effeciency - (other as Drill).Effeciency);
     }
 }
 
@@ -40,7 +53,7 @@ public enum PlayerUpgradeType {
     TANK
 }
 
-public interface PlayerUpgrade {
+public interface PlayerUpgrade : IComparable<PlayerUpgrade> {
     PlayerUpgradeType Type {get;}
     string Name {get;}
     int BasePrice {get;}

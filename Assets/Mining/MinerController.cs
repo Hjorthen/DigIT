@@ -97,6 +97,7 @@ public class MiningController {
 public class MinerController : MonoBehaviour, IMiner
 {
     public float MiningReach = 2;
+    public float BaseMiningTickDelay = 2;
 
     protected MiningController miningController;
     private TickedCooldownTimer miningTimer;
@@ -106,7 +107,7 @@ public class MinerController : MonoBehaviour, IMiner
     public void Start() {
         miningTimer = new TickedCooldownTimer();
         equipment = GetComponent<PlayerEquipment>();
-        miningController = new MiningController(this, miningTimer, () => equipment.Drill.Cooldown);
+        miningController = new MiningController(this, miningTimer, () => BaseMiningTickDelay * (1 / equipment.Drill.Effeciency));
         inventory = GetComponent<OreInventory>().Inventory;
     }
 

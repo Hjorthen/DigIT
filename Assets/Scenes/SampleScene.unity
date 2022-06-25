@@ -17631,12 +17631,23 @@ MonoBehaviour:
   ShopItemListView: {fileID: 4817012795898788844}
   BuyButton: {fileID: 864103929}
   items:
-  - {fileID: 11400000, guid: cc47c594d5e10da44a6baaf47c93c84d, type: 2}
-  - {fileID: 11400000, guid: 361acf436c6062c44abe5d96f183b965, type: 2}
-  - {fileID: 11400000, guid: 672597cf3dc28df42a85cb94c712bcf8, type: 2}
-  - {fileID: 11400000, guid: 97eaf561e1a70864fa17fb9c744e5542, type: 2}
-  - {fileID: 11400000, guid: 4cfc3ff764624b947a601a8371a5ba84, type: 2}
-  - {fileID: 11400000, guid: a9658d4ea2bac904b9e9a4b86b17f024, type: 2}
+  - {fileID: 11400000, guid: 7f2f791e48ed8044aa8983c80c79ed4d, type: 2}
+  - {fileID: 11400000, guid: 06eb4c2aeb7761748938c6390d35dbaa, type: 2}
+  - {fileID: 11400000, guid: 73bb6716de36316439616bb55450e214, type: 2}
+  - {fileID: 11400000, guid: caa7e272c24d14c4a954c8213746343b, type: 2}
+  - {fileID: 11400000, guid: 626886e505151aa4cb64e443d1f63e82, type: 2}
+  - {fileID: 11400000, guid: 5b8583319b22206418b40caf66b710e3, type: 2}
+  - {fileID: 11400000, guid: 88f68e1905269cf469c8dd3bf43f2a01, type: 2}
+  - {fileID: 11400000, guid: 90224d25a4a61f5409054c98fbe217c8, type: 2}
+  - {fileID: 11400000, guid: ca2047d9191db194aa38fb13240fd661, type: 2}
+  - {fileID: 11400000, guid: ed8731cabdf8c1345a3345372d8413a0, type: 2}
+  - {fileID: 11400000, guid: 0d23ad19189a15f4b81cf1cd663c0f24, type: 2}
+  - {fileID: 11400000, guid: 1654df92743eab84ea52ef9606649ca1, type: 2}
+  - {fileID: 11400000, guid: bcbfc7c2b534ecf499e0e44d73cc23ad, type: 2}
+  - {fileID: 11400000, guid: 9d335dd5bf9f69649a4ac4d99fe1d22a, type: 2}
+  - {fileID: 11400000, guid: b1e65b33d85d2564da2ed5afe8015a07, type: 2}
+  - {fileID: 11400000, guid: a5b7fc6c3d4f77f4f8f8176dc9aeb632, type: 2}
+  - {fileID: 11400000, guid: 13464e3e70f7b8f4c9dab1669453c0e4, type: 2}
   PopUp: {fileID: 364768038}
   FuelTanksButton: {fileID: 8356377270415338270}
   HullButton: {fileID: 0}
@@ -17714,6 +17725,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1996207412955876271, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
+      propertyPath: BaseMiningTickDelay
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6143668987692162169, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: m_SpotAngle
       value: 85
@@ -17778,6 +17793,14 @@ PrefabInstance:
       propertyPath: logController
       value: 
       objectReference: {fileID: 1747568069}
+    - target: {fileID: 6390128257674330893, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
+      propertyPath: Tank
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e65b33d85d2564da2ed5afe8015a07, type: 2}
+    - target: {fileID: 6390128257674330893, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
+      propertyPath: Drill
+      value: 
+      objectReference: {fileID: 11400000, guid: 626886e505151aa4cb64e443d1f63e82, type: 2}
     - target: {fileID: 6390128257674330907, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: currentValue
       value: 60

@@ -14,4 +14,12 @@ public class Tank : PlayerUpgradeObject
         stats.Fuel.MaxValue = MaxFuel;
         return true;
     }
+
+    public override int CompareTo(PlayerUpgrade other) {
+        if(!(other is Tank)) {
+            return 0;
+        }
+        
+        return (int)(this.MaxFuel - (other as Tank).MaxFuel);
+    }
 }

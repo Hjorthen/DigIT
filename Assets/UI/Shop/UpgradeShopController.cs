@@ -39,7 +39,9 @@ public class UpgradeShopController : MonoBehaviour
     }
 
     private void DisplayItemsForType(PlayerUpgradeType type) {
-        ShopItemListView.SetList(items.Cast<PlayerUpgrade>().Where(u => u.Type == type).ToList(), this.OnShopListItemSelected);
+        var upgradesOfType = items.Cast<PlayerUpgrade>().Where(u => u.Type == type).ToList();
+        upgradesOfType.Sort();
+        ShopItemListView.SetList(upgradesOfType, this.OnShopListItemSelected);
     }
 
     private void OnShopListItemSelected(PlayerUpgrade clickedItem) {
