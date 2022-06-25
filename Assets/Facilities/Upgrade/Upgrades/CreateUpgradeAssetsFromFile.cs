@@ -6,17 +6,16 @@ using UnityEngine;
 
 public class GenerateUpdateAssetsFromFile : MonoBehaviour
 {
-    [MenuItem("Assets/Upgrades/GenerateFromCSV")]
-    public static bool GenerateAssetsFromCSV() {
-        var selectedObject = Selection.activeObject as TextAsset;
-        var selectedAssetPath = AssetDatabase.GetAssetPath(selectedObject);
-        Debug.Log(selectedAssetPath);
-        if(!selectedObject.name.EndsWith(".csv")) {
-            return false;
-        }
-        return true;
-    }
-
+//    public static bool GenerateAssetsFromCSV() {
+//        var selectedObject = Selection.activeObject as TextAsset;
+//        var selectedAssetPath = AssetDatabase.GetAssetPath(selectedObject);
+//        Debug.Log(selectedAssetPath);
+//        if(!selectedObject.name.EndsWith(".csv")) {
+//            return false;
+//        }
+//        return true;
+//    }
+//
     public static void Generate() {
 
        // string csvPath = selectedObject.name;
