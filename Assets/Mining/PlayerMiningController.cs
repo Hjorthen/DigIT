@@ -22,4 +22,9 @@ public class PlayerMiningController : MinerController
         var PlayerMiningDirection = new Vector2(horizontal, vertical).normalized;
         base.MiningTick(PlayerMiningDirection);
     }
+
+    // Stop mining if we are disabled
+    void OnDisable() {
+        base.MiningTick(Vector2.zero);
+    }
 }

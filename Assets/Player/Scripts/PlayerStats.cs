@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
         do {
             yield return new WaitForSeconds(1);
             if(Time.timeScale > 0.0f)
-                Fuel.Currentvalue -= 1;
-        } while(Fuel.Currentvalue > 0);
+                Fuel.Currentvalue = Mathf.Max(0f, Fuel.Currentvalue - 1);
+        } while(gameObject.activeInHierarchy);
     }
 }

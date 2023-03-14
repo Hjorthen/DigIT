@@ -40,14 +40,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6390128256744752940}
     m_Modifications:
+    - target: {fileID: 2351569533676623802, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: BaseMiningTickDelay
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4703828620668005121, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187687639813512974, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: currentValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7187687639813512977, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: deathOverlay
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7187687639813512977, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: monitoredStats.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187687639813512984, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: Tank
+      value: 
+      objectReference: {fileID: 11400000, guid: b1e65b33d85d2564da2ed5afe8015a07, type: 2}
+    - target: {fileID: 7187687639813512984, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
+      propertyPath: Drill
+      value: 
+      objectReference: {fileID: 11400000, guid: 626886e505151aa4cb64e443d1f63e82, type: 2}
     - target: {fileID: 7330364950408085698, guid: 0dff38b913d2b5444b86618731eb8a20, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -111,6 +131,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6390128256744752940}
     m_Modifications:
+    - target: {fileID: 755729013460305729, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
+      propertyPath: m_SpotAngle
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 755729013460305729, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2073126200930795172, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
       propertyPath: FollowTarget
       value: 
@@ -125,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330960659562114545, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
       propertyPath: m_Range
-      value: 3
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6330960659562114545, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7294424168893661263, guid: 9f65c402e5396d64c8fd5bd034a99edd, type: 3}
       propertyPath: m_RootOrder

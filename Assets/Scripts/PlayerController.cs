@@ -19,6 +19,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float DeaccelerationMultiplier;
 
+    [SerializeField]
+    private bool _CanMove;
+
+    public bool CanMove {
+        get => _CanMove;
+        set {
+            _CanMove = value;
+            GetComponent<PlayerMiningController>().enabled = _CanMove;
+            this.enabled = _CanMove;
+        }
+    }
+
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
