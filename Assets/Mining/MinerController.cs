@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class TickedCooldownTimer : ICooldownTimer
 {
-    private float remainingCooldown;
-    public bool Expired => remainingCooldown <= 0;
+    public float RemainingCooldown {
+        private set;
+        get;
+    }
+    public bool Expired => RemainingCooldown <= 0;
 
     public void WaitFor(float seconds)
     {
-        remainingCooldown = seconds;
+        RemainingCooldown = seconds;
     }
 
     public void AdvanceBy(float delta) {
-        remainingCooldown = Mathf.Max(0.0f, remainingCooldown - delta);
+        RemainingCooldown = Mathf.Max(0.0f, RemainingCooldown - delta);
     }
 }
 
