@@ -8,17 +8,16 @@ public class ShopEnteredHandler : MonoBehaviour
     private GameObject shopView;
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        var playerController = collider.GetComponent<PlayerMiningController>();
-        if(playerController != null) {
-            shopView.SetActive(true);
-            Time.timeScale = 0;
+        var availableShopHandler = collider.GetComponent<AvailableShopHandler>();
+        if(availableShopHandler != null) {
+            availableShopHandler.SetAvailableShop(shopView);
         }
     }
 
-    private void Update() {
-        if(Input.GetKeyUp(KeyCode.Escape) && shopView?.activeInHierarchy == true) {
-            shopView.SetActive(false);
-            Time.timeScale = 1;
+    public void OnTriggerExit2D(Collider2D collider) {
+        var availableShopHandler = collider.GetComponent<AvailableShopHandler>();
+        if(availableShopHandler != null) {
+            availableShopHandler.SetAvailableShop(null);
         }
     }
 }

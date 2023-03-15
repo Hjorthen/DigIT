@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     public ConsumableStat Hull;
 
-    public void Start() {
+    public void OnEnable() {
         StartCoroutine(DrainFuel());
     }
 

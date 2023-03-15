@@ -44,4 +44,22 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/CanvasSizeCorrectInAwakeAndStartScene.unity
+    guid: aacc7084e74b81c43a9cc9aaa3078ef2
+  - enabled: 1
+    path: Assets/NoActiveCameraInSceneDoesNotCrashEditorScene.unity
+    guid: f47bdff3da09d9f4eaa6f4fcf44ffb5f
+  - enabled: 1
+    path: Assets/DisabledCanvasScene.unity
+    guid: 717750c37e2834e428564d01aaf0b034
+  - enabled: 1
+    path: Assets/AspectRatioFitter.unity
+    guid: 35fa24a1c5d9e9348bb194b125c5f5bd
+  - enabled: 1
+    path: Assets/ContentSizeFitter.unity
+    guid: 2d3f3844ebc651d42a20b278e267f0a3
+  - enabled: 1
+    path: Assets/LayoutGroup.unity
+    guid: 8860e74b1b8fbb84cb60b6c879532e8e
   m_configObjects: {}

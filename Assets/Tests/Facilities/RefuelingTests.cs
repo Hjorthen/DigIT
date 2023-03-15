@@ -6,14 +6,15 @@ using UnityEngine.TestTools;
 
 public class RefuelingTests
 {
-    private RefuelCommand refuelCommand;
+    private RefuelingHandler refuelCommand;
     private ConsumableStat fuel;
     private ConsumableStat balance;
+    private float unitPrice;
 
     [SetUp]
     public void Setup() {
-        refuelCommand = new RefuelCommand();
-        refuelCommand.UnitPrice = 1;
+        refuelCommand = new RefuelingHandler();
+        unitPrice = 1;
         fuel = new ConsumableStat();
         balance = new ConsumableStat();
     }
@@ -22,9 +23,9 @@ public class RefuelingTests
     public void Refueling_WithSufficientCash_RefuelsToCapacity() {
         fuel.Currentvalue = 0;
         fuel.MaxValue = 10;
-        balance.Currentvalue = refuelCommand.UnitPrice * fuel.MaxValue;
+        balance.Currentvalue = unitPrice * fuel.MaxValue;
 
-        refuelCommand.Refuel(fuel, balance);
+        refuelCommand.Refuel(fuel, balance, unitPrice);
 
         Assert.AreEqual(0, balance.Currentvalue);
         Assert.AreEqual(fuel.MaxValue, fuel.Currentvalue);
@@ -34,10 +35,10 @@ public class RefuelingTests
     public void Refueling_WithSufficientCash_OnlyChargesForRefueledAmount(){
         fuel.Currentvalue = 5;
         fuel.MaxValue = 10;
-        float initialBalance = refuelCommand.UnitPrice * fuel.MaxValue;
+        float initialBalance = unitPrice * fuel.MaxValue;
         balance.Currentvalue = initialBalance;
 
-        refuelCommand.Refuel(fuel, balance);
+        refuelCommand.Refuel(fuel, balance, unitPrice);
 
         Assert.AreEqual(initialBalance * 0.5, balance.Currentvalue);
         Assert.AreEqual(fuel.MaxValue, fuel.Currentvalue);
@@ -48,10 +49,10 @@ public class RefuelingTests
         fuel.Currentvalue = 0;
         fuel.MaxValue = 10;
         float affordableFuelUnits = 2;
-        float initialBalance = refuelCommand.UnitPrice * affordableFuelUnits;
+        float initialBalance = unitPrice * affordableFuelUnits;
         balance.Currentvalue = initialBalance;
 
-        refuelCommand.Refuel(fuel, balance);
+        refuelCommand.Refuel(fuel, balance, unitPrice);
 
         Assert.AreEqual(0, balance.Currentvalue);
         Assert.AreEqual(affordableFuelUnits, fuel.Currentvalue);
@@ -61,11 +62,11 @@ public class RefuelingTests
     public void Refueling_WithNoCash_RefuelsNothing() {
         fuel.Currentvalue = 0;
         fuel.MaxValue = 10;
-        refuelCommand.UnitPrice = 15;
+        unitPrice = 15;
         float initialBalance = 10;
         balance.Currentvalue = initialBalance;
 
-        refuelCommand.Refuel(fuel, balance);
+        refuelCommand.Refuel(fuel, balance, unitPrice);
 
         Assert.AreEqual(0, fuel.Currentvalue);
         Assert.AreEqual(initialBalance, balance.Currentvalue);
