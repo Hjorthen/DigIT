@@ -9,17 +9,27 @@ public class RefuelPresenter : MonoBehaviour
     private GameObject RefuelPanel;
 
     [SerializeField]
-    private DialogueController DialogueController;
-
-    [SerializeField]
     private WaitPanelView WaitPanel;
     [SerializeField]
     private TickedCooldownTimer timer = new TickedCooldownTimer();
 
+    void Update()
+    {
+        timer.AdvanceBy(Time.deltaTime);
+        if(WaitPanel.Visible) {
+            WaitPanel.DisplaySecondsRemaining = timer.RemainingCooldown;
+            if(timer.Expired) {
+                DialogueController DialogueController = ServiceRegistry.GetService<DialogueController>();
+                DialogueController.Play(CreateRefuelDialogue());
+                HideRefuelPanel();
+            }
+        }
+    }
+
     public void OnWaitButtonClicked() {
         WaitPanel.Visible = true;
-        const float minWaitSeconds = 20;
-        const float maxWaitSeconds = 90;
+        const float minWaitSeconds = 3;
+        const float maxWaitSeconds = 4;
         timer.WaitFor(Random.Range(minWaitSeconds, maxWaitSeconds));
     }
 
@@ -43,18 +53,6 @@ public class RefuelPresenter : MonoBehaviour
         gameObject.SetActive(false);
         RefuelPanel.SetActive(false);
         WaitPanel.Visible = false;
-    }
-
-    void Update()
-    {
-        timer.AdvanceBy(Time.deltaTime);
-        if(WaitPanel.Visible) {
-            WaitPanel.DisplaySecondsRemaining = timer.RemainingCooldown;
-            if(timer.Expired) {
-                DialogueController.Play(CreateRefuelDialogue());
-                HideRefuelPanel();
-            }
-        }
     }
 
     private IEnumerator<DialogueEntry> CreateRefuelDialogue() {

@@ -13,8 +13,12 @@ public class ServiceRegistry : MonoBehaviour
     private List<object> services = new List<object>();
     private static ServiceRegistry instance;
 
+    [SerializeField]
+    private bool DebugEnabled;
+
     public void Awake() {
         if(instance == null) {
+            Debug.Log("Registering ServiceRegistry");
             instance = this;
         } else {
             throw new System.InvalidOperationException("A service registry has already been created!");
@@ -32,6 +36,7 @@ public class ServiceRegistry : MonoBehaviour
     }
 
     private void RegisterServiceInstanced<T>(T instance) where T : class {
+        DebugLog(() => string.Format("Registering service {0}", instance));
         services.Add(instance);
     }
     
@@ -40,10 +45,18 @@ public class ServiceRegistry : MonoBehaviour
     }
 
     public T GetServiceInstanced<T>() where T : class {
-        return services.FirstOrDefault(p => p is T) as T;
+        T locatedService = services.FirstOrDefault(p => p is T) as T;
+        DebugLog(() => string.Format("Requested service {0} found {1}.", typeof(T), locatedService));
+        return locatedService;
     }
 
     public static T GetService<T>() where T : class {
         return instance.GetServiceInstanced<T>();
+    }
+
+    // Takes a lambda to only compute message when necessary
+    private void DebugLog(Func<string> message) {
+        if(DebugEnabled)
+            Debug.Log(message());
     }
 }
