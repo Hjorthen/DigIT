@@ -20,9 +20,9 @@ public class AvailableInteractionHandler : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape)) {
-            availableInteraction.Active = false;
+            availableInteraction.Stop();
         } else if(Input.GetKeyUp(KeyCode.E)) {
-            availableInteraction.Active = true;
+            availableInteraction.Interact();
         }
     }
 }

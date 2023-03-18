@@ -5,9 +5,9 @@ public interface InteractionEntity {
         DIALOGUE,
         SHOP
     }
-    bool Active {
-        set;
-    }
+
+    void Interact();
+    void Stop();
 
     InteractionType Type {
         get;

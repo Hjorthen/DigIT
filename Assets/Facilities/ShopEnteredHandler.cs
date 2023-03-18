@@ -8,15 +8,6 @@ public class ShopEnteredHandler : MonoBehaviour, InteractionEntity
     [SerializeField]
     private GameObject shopView;
 
-    bool InteractionEntity.Active { set { 
-        shopView.SetActive(value);
-        if(shopView.activeInHierarchy) {
-            Time.timeScale = 0;
-        } else {
-            Time.timeScale = 1;
-        }
-    }}
-
     InteractionType InteractionEntity.Type => InteractionType.SHOP;
 
     public void OnTriggerEnter2D(Collider2D collider) {
@@ -31,5 +22,17 @@ public class ShopEnteredHandler : MonoBehaviour, InteractionEntity
         if(availableShopHandler != null) {
             availableShopHandler.SetAvailableInteraction(null);
         }
+    }
+
+    void InteractionEntity.Interact()
+    {
+        shopView.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    void InteractionEntity.Stop()
+    {
+        shopView.SetActive(false);
+        Time.timeScale = 1;
     }
 }
