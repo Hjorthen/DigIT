@@ -22273,6 +22273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308606771562714386, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
       propertyPath: dialogue
       value: 
@@ -22289,7 +22293,8 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 5cf32d11511de0a4b9215b0df2b8e86f, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
 --- !u!1001 &1967047882
 PrefabInstance:
@@ -22783,6 +22788,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308606771562714386, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
       propertyPath: dialogue
       value: 
@@ -22791,7 +22800,8 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 9f2cf55c6d442bd498bd7d8724129ee3, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
 --- !u!4 &2008501082 stripped
 Transform:
@@ -25534,11 +25544,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308606771562714386, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 9f2cf55c6d442bd498bd7d8724129ee3, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3278805716205950507, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
 --- !u!1001 &6390128257674330897
 PrefabInstance:
@@ -25563,6 +25578,10 @@ PrefabInstance:
       propertyPath: emergencyLighting
       value: 
       objectReference: {fileID: 1794573133}
+    - target: {fileID: 4256323965829495831, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6390128256744752940, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -25629,7 +25648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6390128257674330907, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: freeze
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6821598894374116567, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25639,7 +25658,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4256323965829495830, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
 --- !u!1001 &6460129731309066070
 PrefabInstance:

@@ -26,6 +26,14 @@ public class MinerAI : MonoBehaviour
             UpdateTargetPosition();
             _movementTimer.WaitFor(5);
         }
+
+        if(_rigidbody.velocity.x > 0) {
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+        }   
+        else if (_rigidbody.velocity.x < 0)
+        {
+            transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        }
     }
 
     private void UpdateTargetPosition() {
@@ -54,7 +62,7 @@ public class MinerAI : MonoBehaviour
     private bool IsMovingTowardsTarget() {
         float distanceToTarget = Vector2.Distance(transform.position, _moveTargetPosition);
         Debug.Log(distanceToTarget);
-        return  distanceToTarget > 0.5;
+        return  distanceToTarget > 0.2;
     }
 
     private Vector2 GetTargetDirection() {
