@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353b446a013626546a3e787d57851f99, type: 3}
-  m_Name: HullRepair
+  m_Script: {fileID: 11500000, guid: d3944c6ebbad52949a3b043504df14ce, type: 3}
+  m_Name: FeatureGenerator
   m_EditorClassIdentifier: 
-  Message: I just had to get my hull repaired. Why is it so expensive?!
+  gameObjectFeature: {fileID: 11400000, guid: acca4c2fd149bab4ba15d3d72de46409, type: 2}

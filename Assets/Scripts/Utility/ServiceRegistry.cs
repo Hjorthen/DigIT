@@ -18,7 +18,7 @@ public class ServiceRegistry : MonoBehaviour
 
     public void Awake() {
         if(instance == null) {
-            Debug.Log("Registering ServiceRegistry");
+            DebugLog("Registering ServiceRegistry");
             instance = this;
         } else {
             throw new System.InvalidOperationException("A service registry has already been created!");
@@ -57,6 +57,10 @@ public class ServiceRegistry : MonoBehaviour
     // Takes a lambda to only compute message when necessary
     private void DebugLog(Func<string> message) {
         if(DebugEnabled)
-            Debug.Log(message());
+            DebugLog(message());
+    }
+
+    private void DebugLog(string message) {
+        Debug.Log(message);
     }
 }

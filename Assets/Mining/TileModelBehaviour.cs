@@ -11,20 +11,37 @@ public interface MiningTarget {
 [Serializable]
 public class TileModelBehaviour : MonoBehaviour {
     public TileModel Model;
+    [Tooltip("If true the tile will automatically configure itself on started based on the information associated in the world data\nCan be used to configure a tile from the editor.")]
+    public bool AutoConfigure;
     private OreToVisualizerMapper OreViewMapper;
     public void Start() {
         var world = ServiceRegistry.GetService<World>();
         var tiles = ServiceRegistry.GetService<TileRegistry>();
         OreViewMapper = ServiceRegistry.GetService<OreToVisualizerMapper>();
-        Model = world.GetTileAt(transform.position);
+
+        if(AutoConfigure) {
+            Model = world.GetTileAt(transform.position);
+            if(Model == null) {
+                GameObject.Destroy(this.gameObject);
+                return;
+            }
+            Model.Subscribe(new LootProvider());
+            var oreView = new OreView(gameObject, OreViewMapper);
+            Model.Subscribe(oreView);
+            oreView.DisplayTileAs(Model);
+        }
+
         Model.Subscribe(new DestroyOnEnd(this.gameObject));
-        Model.Subscribe(new LootProvider());
-        var oreView = new OreView(gameObject, OreViewMapper);
-        Model.Subscribe(oreView);
-        oreView.DisplayTileAs(Model);
 
         var gridPosition = world.WorldToGridPosition(transform.position);
         tiles.SetTile(gridPosition.x, gridPosition.y, gameObject);
+    }
+
+    void Destroy() {
+        var tiles = ServiceRegistry.GetService<TileRegistry>();
+        var world = ServiceRegistry.GetService<World>();
+        var gridPosition = world.WorldToGridPosition(transform.position);
+        tiles.SetTile(gridPosition.x, gridPosition.y, null);
     }
 }
 

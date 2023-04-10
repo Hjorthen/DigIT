@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static InteractionEntity;
 
@@ -24,7 +25,8 @@ public class DialogueTrigger : MonoBehaviour, InteractionEntity
     }
 
     private void DisplayDialogue() {
-        GameConsole.WriteLine(dialogue.GetMessage());
+        var dialogueController = ServiceRegistry.GetService<DialogueController>();
+        dialogueController.Play(new List<DialogueEntry> {new DialogueEntry("NPC", dialogue.GetMessage())}.GetEnumerator());
     }
 
     void InteractionEntity.Interact()

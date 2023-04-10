@@ -10,7 +10,6 @@ public struct OreYield {
 [System.Serializable]
 public class TileModel : IObservable<TileModel> {
     public bool IsDead => CurrentLife <= 0.0;
-    public bool Claimed = false;
     public IMiner MinedBy;
     [SerializeField]
     private float currentLife;

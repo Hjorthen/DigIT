@@ -74,9 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Model:
+    Claimed: 0
     currentLife: 0
     MaxLife: 0
-  OreViewMapper: {fileID: 11400000, guid: 35b732a8bb1d47349aabe58d9f483a7a, type: 2}
+  AutoConfigure: 1
 --- !u!114 &2936636954901898147
 MonoBehaviour:
   m_ObjectHideFlags: 0
