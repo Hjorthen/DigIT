@@ -22,7 +22,7 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
     private Vector2 gameObjectFeatureLocation;
 
     void OnEnable() {
-        shaft = new LineSegment { Start = new Vector2(10, 0), End = new Vector2(10, 32) };
+        shaft = new LineSegment { Start = new Vector2(10, 0), End = new Vector2(10, 64) };
         tunnels = GenerateTunnels();
         _TunnelFeatures = GenerateTunnelFeatures();
     }
@@ -75,10 +75,12 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
         // Spawn an NPC deeper into the 3rd tunnel
         var secondEncounter = new TunnelFeature {
             Feature = gameObjectFeature,
-            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels[3], 8, int.MaxValue)
+            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels[3], 8, 16)
         };
 
-        return new List<TunnelFeature>() {firstEncounter, secondEncounter};
+        var tunnelFeatures = new List<TunnelFeature>() {firstEncounter, secondEncounter};
+
+        return tunnelFeatures;
     }
 
     public PrefabFeature GetFeatureAt(uint x, uint y)
