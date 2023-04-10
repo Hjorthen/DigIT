@@ -22,11 +22,11 @@ public class World
     public uint Width => grid.Width;
 
     public Vector2Int WorldToGridPosition(Vector3 worldPosition) {
-        return new Vector2Int(Mathf.FloorToInt(worldPosition.x + offset.x), -Mathf.FloorToInt(worldPosition.y - offset.y));
+        return new Vector2Int(Mathf.RoundToInt(worldPosition.x + offset.x), -Mathf.RoundToInt(worldPosition.y - offset.y));
     }
 
     public Vector3 GridToWorldPosition(int x, int y) {
-        return new Vector3(Mathf.FloorToInt(x - offset.x), -Mathf.FloorToInt(y - offset.y));
+        return new Vector3(Mathf.RoundToInt(x - offset.x), -Mathf.RoundToInt(y - offset.y));
     }
 }
 

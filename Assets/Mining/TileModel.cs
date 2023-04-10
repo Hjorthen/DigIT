@@ -71,6 +71,6 @@ public class TileModel : IObservable<TileModel> {
 
     public override string ToString()
     {
-        return $"Tile {currentLife} health";
+        return $"Tile {currentLife} health containing {ore.OreType}";
     }
 }
