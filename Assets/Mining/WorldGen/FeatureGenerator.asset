@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3944c6ebbad52949a3b043504df14ce, type: 3}
   m_Name: FeatureGenerator
   m_EditorClassIdentifier: 
-  gameObjectFeature: {fileID: 11400000, guid: acca4c2fd149bab4ba15d3d72de46409, type: 2}
+  firstTunnelNPC: {fileID: 11400000, guid: 336458008de785146a6ef98a6f08197d, type: 2}
+  secondTunnelNPC: {fileID: 11400000, guid: 8cf67fea205d2b14a958ce3d3af395e1, type: 2}
+  refuelTutorialNPC: {fileID: 11400000, guid: 36aa6e448276bc14e9eb25f24b790190, type: 2}
+  _StoryBeacons:
+  - {fileID: 11400000, guid: e8205cc22c37abd40b0de529738c53d8, type: 2}
+  - {fileID: 11400000, guid: d4a7c819efa88594f8a7a1b89c63d0bc, type: 2}

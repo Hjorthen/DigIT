@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7023a11bca9e6446963cc80ae1fd6f3, type: 3}
-  m_Name: NPCEncounterFeature
+  m_Script: {fileID: 11500000, guid: 0da509cfb03ecff4e82f84390ce3eca4, type: 3}
+  m_Name: 2 Spawner
   m_EditorClassIdentifier: 
-  _Prefab: {fileID: 643080774463988231, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
+  _Prefab: {fileID: 917194879580167191, guid: 69b2116a8ffb8334d927d9df9152f81a, type: 3}
+  _Dialogue: {fileID: 11400000, guid: 20c07c9db4f000842b8c0d65f9d4ac62, type: 2}

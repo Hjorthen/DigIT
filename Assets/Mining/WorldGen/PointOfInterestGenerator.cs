@@ -14,7 +14,14 @@ public struct LineSegment {
 public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
 
     [SerializeField]
-    private PrefabFeature gameObjectFeature;    
+    private PrefabFeature firstTunnelNPC;    
+    [SerializeField]
+    private PrefabFeature secondTunnelNPC;    
+    [SerializeField]
+    private PrefabFeature refuelTutorialNPC;
+
+    [SerializeField]
+    private List<PrefabFeature> _StoryBeacons; 
     private List<LineSegment> tunnels;
     private List<TunnelFeature> _TunnelFeatures;
     // Kept seperate from tunnels since we dont want to spawn anything inside it which will just fall to the bottom
@@ -22,9 +29,18 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
     private Vector2 gameObjectFeatureLocation;
 
     void OnEnable() {
-        shaft = new LineSegment { Start = new Vector2(10, 0), End = new Vector2(10, 64) };
+        shaft = new LineSegment { Start = new Vector2(10, 0), End = new Vector2(10, 22) };
         tunnels = GenerateTunnels();
         _TunnelFeatures = GenerateTunnelFeatures();
+        _TunnelFeatures = AddStoryBeacons(_TunnelFeatures, _StoryBeacons);
+    }
+
+    private List<TunnelFeature> AddStoryBeacons(List<TunnelFeature> tunnelFeatures, List<PrefabFeature> storyBeacons)
+    {
+        for (int i = 0; i < storyBeacons.Count; i++) {
+            tunnelFeatures.Add(new TunnelFeature() {Feature = storyBeacons[i], Location = new Vector2(14, 50* (i + 1))} ); // Adds a story beacon at every 50 tile interval
+        }
+        return tunnelFeatures;
     }
 
     public bool GetTunnelAt(uint x, uint y) {
@@ -68,19 +84,43 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
         var spawnLocationGenerator = new TunnelRandomSpawnLocationAroundShaftGenerator(shaftLocationX, new RandomNumberGenerator());
         // Spawn an NPC right near the shaft in first tunnel
         var firstEncounter = new TunnelFeature {
-            Feature = gameObjectFeature,
-            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels.First(), 0, 3)
+            Feature = firstTunnelNPC,
+            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels.First(), 5, 10)
         };
 
-        // Spawn an NPC deeper into the 3rd tunnel
         var secondEncounter = new TunnelFeature {
-            Feature = gameObjectFeature,
-            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels[3], 8, 16)
+            Feature = secondTunnelNPC,
+            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(tunnels[1], 8, 10)
         };
 
-        var tunnelFeatures = new List<TunnelFeature>() {firstEncounter, secondEncounter};
+        var refuelingEncounter = new TunnelFeature {
+            Feature = refuelTutorialNPC,
+            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(FindClosestTunnelToDepth(tunnels, 22), 2, 4)
+        };
+
+        var tunnelFeatures = new List<TunnelFeature>() {firstEncounter, secondEncounter, refuelingEncounter};
 
         return tunnelFeatures;
+    }
+    /// <summary>
+    /// Assumes that "tunnels" are ordered by depth 
+    /// </summary>
+    /// <returns>
+    /// The tunnel closest to depth
+    /// </returns>
+    private static LineSegment FindClosestTunnelToDepth(List<LineSegment> tunnels, int depth) {
+        for (int i = 1; i < tunnels.Count; i++) {
+            int previousTunnelDepth = (int)tunnels[i - 1].Start.y;
+            int currentTunnelDepth = (int)tunnels[i].Start.y;
+
+            int previousTunnelDistance = Mathf.Abs(depth - previousTunnelDepth);
+            int currentTunnelDistance = Mathf.Abs(depth - currentTunnelDepth);
+
+            if(currentTunnelDistance >= previousTunnelDistance) {
+                return tunnels[i - 1];
+            } 
+        }
+        return tunnels.Last();
     }
 
     public PrefabFeature GetFeatureAt(uint x, uint y)

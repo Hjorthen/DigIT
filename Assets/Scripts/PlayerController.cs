@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveDirection = new Vector2(InputVelocity.x * Multipler.x, InputVelocity.y * Multipler.y);
 
-
         // Check if movement contradicts current direction
         if (Vector2.Dot(moveDirection, Rigidbody.velocity) < 0)
         {

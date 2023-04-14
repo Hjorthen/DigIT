@@ -61,7 +61,6 @@ public class MinerAI : MonoBehaviour
 
     private bool IsMovingTowardsTarget() {
         float distanceToTarget = Vector2.Distance(transform.position, _moveTargetPosition);
-        Debug.Log(distanceToTarget);
         return  distanceToTarget > 0.2;
     }
 

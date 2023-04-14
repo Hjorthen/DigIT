@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe74800cf9fa364380b1f56a72e135d, type: 3}
+  m_Name: MinerLoreSpawner
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - {fileID: 11400000, guid: 3a4211c0abf652341805276dce87f03d, type: 2}
+  - {fileID: 11400000, guid: 0fa76cafc95c78940a3c4507ca3917aa, type: 2}
+  - {fileID: 11400000, guid: bbef6cee31050cc40ba2e4fa2c7145c9, type: 2}
+  - {fileID: 11400000, guid: 185570b2bfe107940b99aa5d76457d26, type: 2}
+  - {fileID: 11400000, guid: 49ead46f66b8bcb479006362fad08add, type: 2}
+  - {fileID: 11400000, guid: e2fe7cd4650611145b9a6bfe694f5e2f, type: 2}

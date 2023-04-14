@@ -4,8 +4,8 @@ using UnityEngine;
 public class PrefabFeature : ScriptableObject
 {
     [SerializeField]
-    private GameObject prefab;
-    public void SpawnAt(Vector3 worldPosition) {
-        GameObject.Instantiate(prefab, worldPosition, prefab.transform.rotation);
+    protected GameObject _Prefab;
+    public virtual void SpawnAt(Vector3 worldPosition) {
+        GameObject.Instantiate(_Prefab, worldPosition, _Prefab.transform.rotation);
     }
 }
