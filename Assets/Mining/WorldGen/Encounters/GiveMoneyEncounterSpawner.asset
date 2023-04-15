@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GiveMoneyEncounterSpawner
   m_EditorClassIdentifier: 
   _Prefab: {fileID: 643080774463988231, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
-  _Dialogue: {fileID: 11400000, guid: 01e5e201ee4fd7844a1a9bb5576b8b3b, type: 2}
+  _Dialogue: {fileID: 11400000, guid: cbea818e7665be74a8b038a9610782e6, type: 2}

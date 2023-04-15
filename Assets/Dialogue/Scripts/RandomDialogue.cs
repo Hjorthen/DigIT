@@ -9,9 +9,9 @@ public class RandomDialogue : Dialogue
     [SerializeField]
     private List<Dialogue> Dialogues;
     
-    public override string GetMessage()
+    public override IEnumerator<DialogueEntry> StartDialogue()
     {
         int randomIndex = Random.Range(0, Dialogues.Count - 1);
-        return Dialogues[randomIndex].GetMessage();
+        return Dialogues[randomIndex].StartDialogue();
     }
 }

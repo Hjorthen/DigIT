@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353b446a013626546a3e787d57851f99, type: 3}
+  m_Script: {fileID: 11500000, guid: 173aab4abf9e0a34b8c72a23129528c1, type: 3}
   m_Name: GiveMoneyDialogue
   m_EditorClassIdentifier: 
-  Message: You seem to be new around here. Here is a little to get you started.
+  _PayoutAmount: 100
+  _ActorName: Steve
+  _PayoutMessage: You seem to be new around here. Here is a little to get you started.
+  _PayoutMessageTwo: Make sure you put them to good use!
+  _PostPayoutMessage: Sorry. I can't spare any more.

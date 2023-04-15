@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353b446a013626546a3e787d57851f99, type: 3}
   m_Name: Runescape
   m_EditorClassIdentifier: 
+  _ActorName: Driller
   Message: 'I''ve heard of some planet where all they do is mine granite and cut
     logs all day. I need a bit more varitiy than that. '

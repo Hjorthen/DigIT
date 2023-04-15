@@ -5,5 +5,5 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Dialogue : ScriptableObject
 {
-    public abstract string GetMessage(); 
+    public abstract IEnumerator<DialogueEntry> StartDialogue();
 }

@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour, InteractionEntity
 
     private void DisplayDialogue() {
         var dialogueController = ServiceRegistry.GetService<DialogueController>();
-        dialogueController.Play(new List<DialogueEntry> {new DialogueEntry("NPC", Dialogue.GetMessage())}.GetEnumerator());
+        dialogueController.Play(Dialogue.StartDialogue());
     }
 
     void InteractionEntity.Interact()

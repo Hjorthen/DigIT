@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353b446a013626546a3e787d57851f99, type: 3}
   m_Name: Ain'tMuch
   m_EditorClassIdentifier: 
+  _ActorName: Driller
   Message: The life here ain't much but at least it is honest work.
