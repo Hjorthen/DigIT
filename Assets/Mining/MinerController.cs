@@ -18,9 +18,9 @@ public class MiningController {
     private List<MiningListener> Listeners = new List<MiningListener>();
     private readonly IMiner owner;
     private readonly ICooldownTimer miningCooldown;
-    private readonly Func<float> miningTickDelay;
+    private readonly float miningTickDelay;
 
-    public MiningController(IMiner owner, ICooldownTimer timer, Func<float> miningTickDelay) {
+    public MiningController(IMiner owner, ICooldownTimer timer, float miningTickDelay) {
         this.owner = owner;
         this.miningCooldown = timer;
         this.miningTickDelay = miningTickDelay;
@@ -30,7 +30,7 @@ public class MiningController {
         Listeners.Add(listener);
     }
 
-    public void MineTarget(MiningTarget tile)
+    public void MineTarget(MiningTarget tile, float miningStrength)
     {
         if (CurrentMiningTarget != tile && tile.CanBeMined())
         {
@@ -40,7 +40,7 @@ public class MiningController {
         {
             if (CurrentMiningTarget.CanBeMined())
             {
-                MineTarget();
+                MineCurrentTarget(miningStrength);
             }
             else
             {
@@ -58,10 +58,10 @@ public class MiningController {
         CurrentMiningTarget = null;
     }
 
-    private void MineTarget() {
+    private void MineCurrentTarget(float miningStrength) {
         if(miningCooldown.Expired) {
-            miningCooldown.WaitFor(miningTickDelay());
-            CurrentMiningTarget.Mine(1.0f);
+            miningCooldown.WaitFor(miningTickDelay);
+            CurrentMiningTarget.Mine(miningStrength);
         }
     }
 
@@ -82,7 +82,7 @@ public class MiningController {
 public class MinerController : MonoBehaviour, IMiner
 {
     public float MiningReach = 2;
-    public float BaseMiningTickDelay = 2;
+    public float BaseMiningTickDelaySeconds = 0.1f;
 
     protected MiningController miningController;
     private TickedCooldownTimer miningTimer;
@@ -92,7 +92,7 @@ public class MinerController : MonoBehaviour, IMiner
     public void Start() {
         miningTimer = new TickedCooldownTimer();
         equipment = GetComponent<PlayerEquipment>();
-        miningController = new MiningController(this, miningTimer, () => BaseMiningTickDelay * (1 / equipment.Drill.Effeciency));
+        miningController = new MiningController(this, miningTimer, BaseMiningTickDelaySeconds);
         inventory = GetComponent<OreInventory>().Inventory;
     }
 
@@ -109,7 +109,7 @@ public class MinerController : MonoBehaviour, IMiner
             if(tile != null)
             {
                 Debug.DrawRay(transform.position, direction.normalized * MiningReach, Color.green);
-                miningController.MineTarget(tile);
+                miningController.MineTarget(tile, equipment.Drill.Effeciency);
             }
         } else {
             Debug.DrawRay(transform.position, direction.normalized * MiningReach, Color.red);

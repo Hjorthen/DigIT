@@ -19,6 +19,8 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
     private PrefabFeature secondTunnelNPC;    
     [SerializeField]
     private PrefabFeature refuelTutorialNPC;
+    [SerializeField]
+    private PrefabFeature harderGroundDialogue;
 
     [SerializeField]
     private List<PrefabFeature> _StoryBeacons; 
@@ -98,7 +100,17 @@ public class PointOfInterestGenerator : ScriptableObject, ITunnelGenerator {
             Location = spawnLocationGenerator.GetSpawnLocationInTunnel(FindClosestTunnelToDepth(tunnels, 22), 2, 4)
         };
 
-        var tunnelFeatures = new List<TunnelFeature>() {firstEncounter, secondEncounter, refuelingEncounter};
+        var harderGroundDialogueEncounter = new TunnelFeature {
+            Feature = harderGroundDialogue,
+            Location = spawnLocationGenerator.GetSpawnLocationInTunnel(FindClosestTunnelToDepth(tunnels, 40), 2, 5)
+        };
+
+        var tunnelFeatures = new List<TunnelFeature>() {
+            firstEncounter,
+            secondEncounter,
+            refuelingEncounter,
+            harderGroundDialogueEncounter
+        };
 
         return tunnelFeatures;
     }

@@ -42,7 +42,7 @@ public class WorldComponent : MonoBehaviour
             {
                 if(!tunnelGenerator.GetTunnelAt(j, i)) {
                     var oreType = oreDistribution.SampleAt(j, i);
-                    grid[i, j] = new TileModel(new OreYield { OreType = factory.GetOre(oreType), Quantity = 1 }, 10);
+                    grid[i, j] = new TileModel(new OreYield { OreType = factory.GetOre(oreType), Quantity = 1 }, GetTileLifeAtDepth(i));
                 } else {
                     grid[i, j] = null;
                 }
@@ -50,6 +50,14 @@ public class WorldComponent : MonoBehaviour
         }
 
         return grid;
+    }
+
+    private float GetTileLifeAtDepth(uint depth) {
+        if(depth <= 45) {
+            return 200;
+        }
+        
+        return 200 + depth;
     }
     
     void Update() 

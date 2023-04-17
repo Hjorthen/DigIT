@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ObsidianDrill
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Obsidian Drill
-  <BasePrice>k__BackingField: 3200
-  Effeciency: 2.2
+  <BasePrice>k__BackingField: 1000
+  Effeciency: 16

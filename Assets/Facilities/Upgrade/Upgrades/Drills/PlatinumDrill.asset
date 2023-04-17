@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlatinumDrill
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Platinum Drill
-  <BasePrice>k__BackingField: 2000
-  Effeciency: 1.8
+  <BasePrice>k__BackingField: 12000
+  Effeciency: 36

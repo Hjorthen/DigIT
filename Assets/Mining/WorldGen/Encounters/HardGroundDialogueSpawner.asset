@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cd440896d8e7546bc35d246adc5284, type: 3}
-  m_Name: SteelDrill
+  m_Script: {fileID: 11500000, guid: 0da509cfb03ecff4e82f84390ce3eca4, type: 3}
+  m_Name: HardGroundDialogueSpawner
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Steel Drill
-  <BasePrice>k__BackingField: 600
-  Effeciency: 12
+  _Prefab: {fileID: 643080774463988231, guid: 683aa7a6b127c8945b82fa1fd31a91df, type: 3}
+  _Dialogue: {fileID: 11400000, guid: 5280a0af91376934198e4c901a50ef85, type: 2}

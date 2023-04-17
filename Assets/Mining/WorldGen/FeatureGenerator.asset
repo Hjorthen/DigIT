@@ -15,6 +15,7 @@ MonoBehaviour:
   firstTunnelNPC: {fileID: 11400000, guid: 336458008de785146a6ef98a6f08197d, type: 2}
   secondTunnelNPC: {fileID: 11400000, guid: 8cf67fea205d2b14a958ce3d3af395e1, type: 2}
   refuelTutorialNPC: {fileID: 11400000, guid: 36aa6e448276bc14e9eb25f24b790190, type: 2}
+  harderGroundDialogue: {fileID: 11400000, guid: 511a7e64e83a5ba4eb42e0e5f7fbee96, type: 2}
   _StoryBeacons:
   - {fileID: 11400000, guid: e8205cc22c37abd40b0de529738c53d8, type: 2}
   - {fileID: 11400000, guid: d4a7c819efa88594f8a7a1b89c63d0bc, type: 2}

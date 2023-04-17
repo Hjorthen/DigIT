@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TitaniumDrill
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Titanium Drill
-  <BasePrice>k__BackingField: 7000
-  Effeciency: 4
+  <BasePrice>k__BackingField: 6000
+  Effeciency: 25
