@@ -25741,14 +25741,14 @@ PrefabInstance:
     - target: {fileID: 6390128257674330893, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: Drill
       value: 
-      objectReference: {fileID: 11400000, guid: 06eb4c2aeb7761748938c6390d35dbaa, type: 2}
+      objectReference: {fileID: 11400000, guid: 626886e505151aa4cb64e443d1f63e82, type: 2}
     - target: {fileID: 6390128257674330906, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: freeze
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6390128257674330907, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: freeze
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6821598894374116567, guid: 6a7887f007b0f8146ae1c6436047b7b2, type: 3}
       propertyPath: m_LocalPosition.x
